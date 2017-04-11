@@ -10,6 +10,6 @@
         <tcpOptions soReuseAddr="true"/>
     </httpEndpoint>
 
-    <application name="JavaHelloWorldApp" context-root="/JavaHelloWorldApp" location="${appLocation}" type="war"/>
+    <application name="upy3" context-root="/upy3" location="${appLocation}" type="war"/>
 
 </server>
