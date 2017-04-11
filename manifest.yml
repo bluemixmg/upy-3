@@ -1,0 +1,10 @@
+applications:
+- path: target/JavaHelloWorldApp.war
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: upy-3
+  host: upy-3
+  disk_quota: 1024M
+  services:
+  - ElephantSQL-69
