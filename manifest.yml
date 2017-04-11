@@ -1,6 +1,6 @@
 applications:
 - path: target/JavaHelloWorldApp.war
-  memory: 512M
+  memory: 1024M
   instances: 1
   domain: mybluemix.net
   name: upy-3
