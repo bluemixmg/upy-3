@@ -1,0 +1,137 @@
+				<form id="example-advanced-form" action="#">
+				    <h3>Solicitud</h3>
+				    <fieldset>
+				        <legend>Información del Traslado</legend>
+				 		<div class="container-fluid">
+				 			<div class="row">
+				 				<div class="col-sm-4">
+				 					<label>Hora: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></span></label> 
+				 					<input type="text" class="time form-control" name="solicitud-hora" id="solicitud-hora" required/>
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Días:
+				 					<br>
+				 					<div class="checkbox">
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="1">
+											L
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="2">
+											Ma
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="3">
+											Mi
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="4">
+											J
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="5">
+											V
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="6">
+											S
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="7">
+											D
+										</label>
+									</div>
+			
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Sentido:
+				 					<br>
+				 					<div class="radio">
+										<label>
+											<input type="radio" name="solicitud-sentido" value="1" checked="">
+											Normal
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="solicitud-sentido" value="2">
+											Inverso
+										</label>
+									</div>
+				 				</div>
+				 			</div>
+				 			<div class="row">
+				 				<div class="col-sm-4">
+				 					<label>Apartir de:</label> 
+				 					<input type="text" class="date form-control" name="solicitud-fecha" id="solicitud-fecha" required/>
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Repetir: 
+				 					<select class="form-control" id="solicitud-repetir" name="solicitud-repetir">
+								    	<option value="1">No repetir</option>
+								    	<option value="2">Semanalmente</option>
+								    	<option value="3">Mensualmente</option>
+								  	</select>
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Repetir hasta:
+				 					<select class="form-control" id="solicitud-repetir-hasta" name="solicitud-repetir-hasta">
+								    	<option value="1">Fin del Mes Actual</option>
+								    	<option value="2">Fin del Próximo Mes</option>
+								    	<option value="3">Fin del Año Actual</option>
+								    	<option value="4">Fecha Específica</option>
+								  	</select>
+								  	<input type="text" class="date hide" name="solicitud-repetir-hasta-fecha" id="solicitud-repetir-hasta-fecha"/>
+				 				</div>
+				 			</div>
+				 			<br>
+				 			<div class="row">
+				 				<div class="col-sm-12">
+				 					<label>Especificaciones del Auto</label>
+				 				</div>
+				 				<div class="col-sm-12">
+
+				 					<div class="radio">
+
+										<label>
+											<input type="radio" name="solicitud-auto" value="1" checked>
+											Clase A
+										</label>
+										<label>
+											<input type="radio" name="solicitud-auto" value="2">
+											Clase B
+										</label>
+										<label>
+											<input type="radio" name="solicitud-auto" value="3">
+											Clase C
+										</label>
+									</div>
+				 				</div>
+				 			</div>
+				 		</div>
+				        <p>(*) Campo obligatorio</p>
+				    </fieldset>
+				 
+				    <h3>Pasajeros</h3>
+				    <fieldset>
+				        <legend>Lista de Pasajeros</legend>
+				 		<div class="checkbox">
+						  <label><input type="checkbox" name="pasajeros[]" value="1">Juan Castillo, 21.432.4522</label>
+						</div>
+						<div class="checkbox">
+						  <label><input type="checkbox" name="pasajeros[]" value="2">Carmen Hernandez, 17.234.642</label>
+						</div>
+						<div class="checkbox">
+						  <label><input type="checkbox" name="pasajeros[]" value="3">Maikel Zambrano, 24.214.618</label>
+						</div>
+				    </fieldset>
+				 				 
+				    <h3>Confirmación</h3>
+				    <fieldset>
+				        <legend>Confirmación de la solicitud</legend>
+				 
+				        <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">Estoy de acuerdo con la solicitud de la orden.</label>
+				    </fieldset>
+				</form>		        
