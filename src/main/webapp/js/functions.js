@@ -28,6 +28,14 @@ $(document).ready(function(){
 					    headerTag: "h3",
 					    bodyTag: "fieldset",
 					    transitionEffect: "slideLeft",
+					    labels: {
+					        current: "Actual",
+					        pagination: "Paginación",
+					        finish: "Finalizar",
+					        next: "Siguiente",
+					        previous: "Anterior",
+					        loading: "Cargando ...",
+					    },
 					    onStepChanging: function (event, currentIndex, newIndex)
 					    {
 					        // Allways allow previous action even if the current form is not valid!
@@ -62,6 +70,10 @@ $(document).ready(function(){
 					        {
 					            form.steps("previous");
 					        }
+					        if (currentIndex === 3)
+					        {
+					            alert('sss');
+					        }
 					    },
 					    onFinishing: function (event, currentIndex)
 					    {
@@ -81,15 +93,17 @@ $(document).ready(function(){
 					    }
 					});
 
+					$('[data-toggle="tooltip"]').tooltip();
+
 	    });
 
 
-	    $('[data-toggle="tooltip"]').tooltip();
+
 	});
 
 	$('#myModal').on('focus',".date", function(){
 	    $(this).datepicker({
-	    	'minDate': "+ 2d"
+	    	'minDate': "+ 2d",
 	    });
 	})
 

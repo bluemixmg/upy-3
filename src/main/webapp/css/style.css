@@ -1885,3 +1885,9 @@ overflow: auto;
 .no-padding{
 	padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.panel-footer{
+	background-color: #243238 !important;
+    color: white !important;
+}

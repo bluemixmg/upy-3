@@ -5,7 +5,7 @@
 				 		<div class="container-fluid">
 				 			<div class="row">
 				 				<div class="col-sm-4">
-				 					<label>Hora: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione la hora del día a la que se llevará a cabo el traslado. (Hora y minutos)"></span></label>
+				 					Hora: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione la hora del día a la que se llevará a cabo el traslado. (Hora y minutos)"></span>
 				 					<div class="container-fluid">
 				 						<div class="col-sm-4 no-padding">
 						 					<select class="form-control" id="solicitud-hora" name="solicitud-hora">
@@ -40,7 +40,7 @@
 				 					</div>
 				 				</div>
 				 				<div class="col-sm-4">
-				 					Días:
+				 					Días:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione los días de la semana en los que se llevará a cabo el traslado. (L:Lunes, Ma:Martes, Mi:Miercoles, J:Jueves, V:Viernes, S:Sábado, D:Domingo)"></span>
 				 					<br>
 				 					<div class="checkbox">
 										<label>
@@ -77,7 +77,7 @@
 			
 				 				</div>
 				 				<div class="col-sm-4">
-				 					Sentido:
+				 					Sentido: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="left" title="Seleccione el sentido del traslado. (Normal: Traslado desde la sucursal hasta la dirección de cada pasajero. Inverso: Traslado desde la ubicación de los pasajeros hasta la sucursal.)"></span>
 				 					<br>
 				 					<div class="radio">
 										<label>
@@ -95,11 +95,11 @@
 				 			</div>
 				 			<div class="row">
 				 				<div class="col-sm-4">
-				 					<label>Apartir de:</label> 
+				 					Apartir de:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione la fecha desde la cual se empezarán a realizar los traslados."></span> 
 				 					<input type="text" class="date form-control" name="solicitud-fecha" id="solicitud-fecha" required/>
 				 				</div>
 				 				<div class="col-sm-4">
-				 					Repetir: 
+				 					Repetir: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione las veces que se realizará el traslado solicitado. (No repetir: solo se realizará el traslado solicitado la semana seleccionada. Semanalmente: Se repetirá el traslado cada semana. Mensualmente: Se repetirá el traslado la misma semana de cada mes)"></span>
 				 					<select class="form-control" id="solicitud-repetir" name="solicitud-repetir">
 								    	<option value="1">No repetir</option>
 								    	<option value="2">Semanalmente</option>
@@ -107,7 +107,7 @@
 								  	</select>
 				 				</div>
 				 				<div class="col-sm-4">
-				 					Repetir hasta:
+				 					Repetir hasta: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="left" title="Seleccione hasta cuando se repetirán los traslados (en caso de repetirse)"></span>
 				 					<select class="form-control" id="solicitud-repetir-hasta" name="solicitud-repetir-hasta">
 								    	<option value="1">Fin del Mes Actual</option>
 								    	<option value="2">Fin del Próximo Mes</option>
@@ -120,7 +120,7 @@
 				 			<br>
 				 			<div class="row">
 				 				<div class="col-sm-12">
-				 					<label>Especificaciones del Auto</label>
+				 					<label>Especificaciones del Auto <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione las especificaciones el auto que desea que le haga el traslado. (Clase A:, Clase B:, Clase C:)"></span></label>
 				 				</div>
 				 				<div class="col-sm-12">
 
@@ -147,7 +147,7 @@
 				 
 				    <h3>Pasajeros</h3>
 				    <fieldset>
-				        <legend>Lista de Pasajeros</legend>
+				        <legend>Lista de Pasajeros <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione los pasajeros a los cuales se les hará el traslado solicitado."></span></legend>
 				 		<div class="checkbox">
 						  <label><input type="checkbox" name="pasajeros[]" value="1">Juan Castillo, 21.432.4522</label>
 						</div>
