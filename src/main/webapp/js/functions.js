@@ -43,17 +43,15 @@ $(document).ready(function(){
 					        {
 					            return true;
 					        }
-					        // Forbid next action on "Warning" step if the user is to young
-					        if (newIndex === 3 && Number($("#age-2").val()) < 18)
-					        {
-					            return false;
-					        }
 					        // Needed in some cases if the user went back (clean up)
 					        if (currentIndex < newIndex)
 					        {
 					            // To remove error styles
 					            form.find(".body:eq(" + newIndex + ") label.error").remove();
 					            form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+					        }
+					        if (newIndex === 2){
+					            //aqui va el codigo para cargar la pantalla de resumen
 					        }
 					        form.validate().settings.ignore = ":disabled,:hidden";
 					        return form.valid();
@@ -70,10 +68,6 @@ $(document).ready(function(){
 					        {
 					            form.steps("previous");
 					        }
-					        if (currentIndex === 3)
-					        {
-					            alert('sss');
-					        }
 					    },
 					    onFinishing: function (event, currentIndex)
 					    {
@@ -82,7 +76,23 @@ $(document).ready(function(){
 					    },
 					    onFinished: function (event, currentIndex)
 					    {
-					        alert("Submitted!");
+					        swal({
+							  title: "Esta seguro que desea realizar la solicitud de traslado?",
+							  type: "warning",
+							  showCancelButton: true,
+							  confirmButtonColor: "#DD6B55",
+							  confirmButtonText: "Si!",
+							  cancelButtonText: "No!",
+							  closeOnConfirm: false,
+							  closeOnCancel: false
+							},
+							function(isConfirm){
+							  if (isConfirm) {
+							    swal("Actualizado!", "La solicitud se ha registrado exitosamente.", "success");
+							  } else {
+							    swal("Cancelado", "Solicitud de traslado cancelada.", "error");
+							  }
+							});
 					    }
 					}).validate({
 					    errorPlacement: function errorPlacement(error, element) { element.before(error); },
