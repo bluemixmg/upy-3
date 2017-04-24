@@ -36,7 +36,7 @@ h1,h2,h3,h4,h5,h6,label,p{
 }
 /*--header--*/
 .header {
-	background:url(http://upy3.com/wp-content/uploads/2016/12/quienes-somos-upy3.jpg) no-repeat;
+	background:url(../images/quienes-somos-upy3.jpg) no-repeat;
 	width:100%;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -1855,3 +1855,33 @@ a, a:hover, a:focus, a:active {
     border-radius: 10px;
     padding: .3em .7em;
 }
+
+.header{
+    background-size: 100%;
+    min-height: 320px;
+}
+.contact-bottom input[type="text"] ,.contact-bottom textarea{
+    width: 100%;
+    color: black;
+}
+.contact-bottom input[type="password"] ,.contact-bottom textarea{
+    width: 100%;
+}
+.suggest-element{
+margin-left:5px;
+margin-top:5px;
+width:350px;
+cursor:pointer;
+}
+#suggestions {
+width:350px;
+height:150px;
+overflow: auto;
+}
+#map * {
+    overflow:visible;
+}
+
+.no-padding{
+	padding-left: 0 !important;
+    padding-right: 0 !important;

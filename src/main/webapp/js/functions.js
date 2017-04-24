@@ -84,7 +84,7 @@ $(document).ready(function(){
 	    });
 
 
-
+	    $('[data-toggle="tooltip"]').tooltip();
 	});
 
 	$('#myModal').on('focus',".date", function(){
@@ -99,11 +99,6 @@ $(document).ready(function(){
 	    });
 	})
 
-	$('#myModal').on('focus','[data-toggle="tooltip"]', function(){
-	    $(this).tooltip();
-	})
-
-	//$('[data-toggle="tooltip"]').tooltip();
 
 });
 
