@@ -305,3 +305,21 @@ function registrarEmpleado(el){
 	btnNuevo.click();
 	swal("Pasajero Agregado", 'Por favor modifique los detalles del pasajero y presione el botón "Actualizar Pasajero"');
 }
+
+function actualizarRuta(el){
+	$("#listado_rutas button.active").removeClass("active");
+	$(el).addClass("active");
+	data = $(el).data("ruta");
+
+	$("#ruta-chofer").html(data.chofer.nombre +", " + data.chofer.sexo + ", " + data.chofer.telefono);
+	$("#ruta-chofer-auto").html(data.chofer.auto);
+	$("#ruta-tarifa").html(data.tarifa);
+
+	$("#lista-paradas").empty();
+
+	$.each(data.paradas, function(i, item){
+		$("#lista-paradas").append('<div class="list-group-item"><strong>' + item.orden 
+									+ ': ' + item.direccion +'</strong><label>' + item.nombre 
+									+ ', ' + item.cedula + ', ' + item.sexo + ', ' + item.telefono + '</label></div>');
+	});
+}

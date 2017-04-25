@@ -460,7 +460,7 @@
 	        
 	        <!--ORDEN DE SERVICIO-->
 	        <div id="solicitudes" class="tab-pane fade">
-	            <div class="container">
+	            <div class="container-fluid">
 	            	<div class="col-sm-4">
 	            		<div class="bootcards-list">
 						  <div class="panel panel-default">
@@ -548,92 +548,221 @@
 						</div>
 	            	</div>
 	            	<div class="col-sm-8 bootcards-cards hidden-xs">
-		            	<div class="col-sm-6">
-		            	  <!--contact details -->
-				          <div id="pasajerosCard">
+	            		<div class="container-fluid">
+	            			<div class="col-sm-12">
+	            				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+								  <div class="panel panel-primary">
+								    <div class="panel-heading" role="tab" id="headingOne">
+								      <h4 class="panel-title">
+								        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								          Datos de la orden
+								        </a>
+								      </h4>
+								    </div>
+								    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+								      <div class="panel-body">
+								        <div class="container-fluid">
+								        	<div class="col-sm-6">
+							            	  <!--contact details -->
+									          <div id="pasajerosCard">
 
-				            <div class="panel panel-primary">
-				                <div class="panel-heading clearfix">
-				                	<h3 class="panel-title pull-left">Pasajeros</h3> 
-				                </div>
-				              	<div id="lista-pasajeros" class="list-group">
-					                <div class="list-group-item">
-					                  <label>Juan Jimenez, 21.432.345, Masculino, 0414-3059201</label>
-					                  <strong>Av. Venezuela con Bracamonte</strong>
-					                </div>
+									            <div class="panel panel-primary">
+									                <div class="panel-heading clearfix">
+									                	<h3 class="panel-title pull-left">Pasajeros</h3> 
+									                </div>
+									              	<div id="lista-pasajeros" class="list-group">
+										                <div class="list-group-item">
+										                  <label>Juan Jimenez, 21.432.345, Masculino, 0414-3059201</label>
+										                  <strong>Av. Venezuela con Bracamonte</strong>
+										                </div>
 
-					                <div class="list-group-item">
-					                  <label>William Alvarez, 16.243.876, Masculino, 0414-3059301</label>
-					                  <strong>Urb. Nueva Segovia, Calle 3</strong>
-					                </div>
+										                <div class="list-group-item">
+										                  <label>William Alvarez, 16.243.876, Masculino, 0414-3059301</label>
+										                  <strong>Urb. Nueva Segovia, Calle 3</strong>
+										                </div>
 
-					                <div class="list-group-item">
-					                  <label>Luisa Panto, Femenino, 0414-4059301</label>
-					                  <strong>Urb. La Rosaleda</strong>
-					                </div>
+										                <div class="list-group-item">
+										                  <label>Luisa Panto, Femenino, 0414-4059301</label>
+										                  <strong>Urb. La Rosaleda</strong>
+										                </div>
 
-				              	</div>
-   
-				            </div>
+									              	</div>
+					   
+									            </div>
 
-				          </div><!--contact card-->
+									          </div><!--contact card-->
+									          <br>
+									          <div id="tarifaOrdenCard">
 
-		            	</div>
+									            <div class="panel panel-primary">
+									                <div class="panel-heading clearfix">
+									                	<h3 class="panel-title pull-left">Tarifa</h3> 
+									                </div>
+									              	<div id="tarifa-total-list-group" class="list-group">
+										                <div class="list-group-item">
+										                  <strong>Total a pagar:</strong>
+										                  <label>25.000,00 Bs</label>
+										                </div>
 
-		            	<div class="col-sm-6">
-		            	  <!--contact details -->
-				          <div id="detallesCard">
+									              	</div>
+					   
+									            </div>
 
-				            <div class="panel panel-primary">
-				              <div class="panel-heading clearfix">
-				                <h3 class="panel-title pull-left">Detalles de Orden</h3>  
-				              </div>
-				              <div id="listado-detalles" class="list-group">
-				                <div class="list-group-item">
-				                  <label>Sucursal</label>
-				                  <h4 class="list-group-item-heading">Sambil</h4>
-				                  <label><strong>Avenida Venezuela con Bracamonte</strong></label>
-				                </div>
-				                <div class="list-group-item">
-				                  <label>Teléfono</label>
-				                  <h4 class="list-group-item-heading"><a href="tel://+58 2512547645">0251-2547645</a></h4>
-				                </div>
+									          </div>
 
-				                <div class="list-group-item">
-				                  <label>Email</label>
-				                  <h4 class="list-group-item-heading"><a href="mailto:sambil@sambil.com">sambil@sambil.com</a></h4>
-				                </div>
-				                <div class="list-group-item">
-				                  <label>Días</label>
-				                  <h4 class="list-group-item-heading">L Mi J</h4>
-				                </div>
+							            	</div>
 
-				                <div class="list-group-item">
-				                  <label>Hora</label>
-				                  <h4 class="list-group-item-heading">9:00 AM</h4>
-				                </div>
+							            	<div class="col-sm-6">
+							            	  <!--contact details -->
+									          <div id="detallesCard">
 
-				                <div class="list-group-item">
-				                  <label>Frecuencia</label>
-				                  <h4 class="list-group-item-heading">Semanalmente</h4>
-				                </div>
-				                <div class="list-group-item">
-				                  <label>Duración</label>
-				                  <h4 class="list-group-item-heading">Este Mes</h4>
-				                </div>
-				                <div class="list-group-item">
-				                  <label>Especificaciones de Auto</label>
-				                  <h4 class="list-group-item-heading">Aire Acondicionado, Radio</h4>
-				                </div>
-				                
+									            <div class="panel panel-primary">
+									              <div class="panel-heading clearfix">
+									                <h3 class="panel-title pull-left">Detalles de Orden</h3>  
+									              </div>
+									              <div id="listado-detalles" class="list-group">
+									                <div class="list-group-item">
+									                  <label>Sucursal</label>
+									                  <h4 class="list-group-item-heading">Sambil</h4>
+									                  <label><strong>Avenida Venezuela con Bracamonte</strong></label>
+									                </div>
+									                <div class="list-group-item">
+									                  <label>Teléfono</label>
+									                  <h4 class="list-group-item-heading"><a href="tel://+58 2512547645">0251-2547645</a></h4>
+									                </div>
 
-				              </div>
-   
-				            </div>
+									                <div class="list-group-item">
+									                  <label>Email</label>
+									                  <h4 class="list-group-item-heading"><a href="mailto:sambil@sambil.com">sambil@sambil.com</a></h4>
+									                </div>
+									                <div class="list-group-item">
+									                  <label>Días</label>
+									                  <h4 class="list-group-item-heading">L Mi J</h4>
+									                </div>
 
-				          </div>
-				          <!--contact card-->
-		            	</div>
+									                <div class="list-group-item">
+									                  <label>Hora</label>
+									                  <h4 class="list-group-item-heading">9:00 AM</h4>
+									                </div>
+
+									                <div class="list-group-item">
+									                  <label>Frecuencia</label>
+									                  <h4 class="list-group-item-heading">Semanalmente</h4>
+									                </div>
+									                <div class="list-group-item">
+									                  <label>Duración</label>
+									                  <h4 class="list-group-item-heading">Este Mes</h4>
+									                </div>
+									                <div class="list-group-item">
+									                  <label>Especificaciones de Auto</label>
+									                  <h4 class="list-group-item-heading">Aire Acondicionado, Radio</h4>
+									                </div>
+									                
+
+									              </div>
+					   
+									            </div>
+
+									          </div>
+									          <!--contact card-->
+							            	</div>
+								        </div>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="panel panel-primary">
+								    <div class="panel-heading" role="tab" id="headingTwo">
+								      <h4 class="panel-title">
+								        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								          Rutas
+								        </a>
+								      </h4>
+								    </div>
+								    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								      <div class="panel-body">
+								        <div class="container-fluid">
+								        	<div class="col-sm-3">
+									  			<div class="list-group" id="listado_rutas">
+												  <button onclick="actualizarRuta(this)" type="button" class="list-group-item active" data-ruta='{"paradas":[{"orden":"A","direccion":"Sucursal","nombre":"","telefono":"", "sexo":"", "cedula":""},{"orden":"B","direccion":"Urb. Nueva Segovia 2, Calle 31","nombre":"Walter Alvarado","telefono":"0416-3059301", "sexo":"Masculino", "cedula":"20.423.623"}], "chofer":{"nombre":"John Jacobo", "sexo":"Masculino", "telefono":"0414-3059201", "auto":"Ford focus azul 4 puestos"}, "tarifa":"25.000 Bs. F"}'><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Ruta #1</button>
+												  <button onclick="actualizarRuta(this)" type="button" class="list-group-item" data-ruta='{"paradas":[{"orden":"A","direccion":"Sucursal","nombre":"","telefono":"", "sexo":"", "cedula":""},{"orden":"B","direccion":"Urb. Nueva Segovia 2, Calle 31","nombre":"William Altuve","telefono":"0412-3059301", "sexo":"Masculino", "cedula":"12.423.423"}], "chofer":{"nombre":"John Jacob", "sexo":"Masculino", "telefono":"0416-3059201", "auto":"Ford fiesta azul 4 puestos"}, "tarifa":"35.000 Bs. F"}'><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Ruta #2</button>
+												  <button  onclick="actualizarRuta(this)" type="button" class="list-group-item" data-ruta='{"paradas":[{"orden":"A","direccion":"Sucursal","nombre":"","telefono":"", "sexo":"", "cedula":""},{"orden":"B","direccion":"Urb. El Tabure, Avenida el Placer","nombre":"Carlos Peraza","telefono":"0251-3059301", "sexo":"Masculino", "cedula":"22.623.423"},{"orden":"C","direccion":"Urb. La Mendera 2, Sector la Mendera","nombre":"Alexandra Oropeza","telefono":"0426-3329301", "sexo":"Femenino", "cedula":"24.323.423"}], "chofer":{"nombre":"Ismael Martinez", "sexo":"Masculino", "telefono":"0424-3559201", "auto":"Toyota Corolla gris 4 puestos"}, "tarifa":"15.000 Bs. F"}'><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Ruta #3</button>
+												  <button  onclick="actualizarRuta(this)" type="button" class="list-group-item" data-ruta='{"paradas":[{"orden":"A","direccion":"Sucursal","nombre":"","telefono":"", "sexo":"", "cedula":""},{"orden":"B","direccion":"Urb. Rio Lama, Av. Herman Garmendia","nombre":"Voris Valvuena","telefono":"0451-3249301", "sexo":"Masculino", "cedula":"22.521.423"}], "chofer":{"nombre":"Cecilia Ganda", "sexo":"Femenino", "telefono":"0426-3059201", "auto":"Mazda 6 azul 4 puestos"}, "tarifa":"18.000 Bs. F"}'><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Ruta #4</button>
+												</div>
+											</div>
+
+											<div class="col-sm-6">
+												<div class="panel panel-primary">
+									                <div class="panel-heading clearfix">
+									                	<h3 class="panel-title pull-left">Recorrido</h3> 
+									                </div>
+									              	<div id="lista-paradas" class="list-group">
+										                <div class="list-group-item">
+										                  <strong>A: Sucursal</strong>
+										                </div>
+
+										                <div class="list-group-item">
+										                  <strong>C: Urb. Nueva Segovia, Calle 3</strong>
+										                  <label>William Alvarez, 16.243.876, Masculino, 0414-3059301</label>
+										                </div>
+
+										                <div class="list-group-item">
+										                  <strong>D: Urb. Central</strong>
+										                  <label>Oscar Perez, Masculino, 0414-4059301</label>
+										                </div>
+
+										                <div class="list-group-item">
+										                  <strong>E: Urb. Este</strong>
+										                  <label>Jose Luis Ramirez, Masculino, 0414-4059306</label>
+										                </div>
+
+										                <div class="list-group-item">
+										                  <strong>F: Urb. Oeste</strong>
+										                  <label>Jesus Gutierrez, Masculino, 0414-4059302</label>
+										                </div>
+
+									              	</div>
+					   
+									            </div>
+				                           </div>
+				                           <div class="col-sm-3">
+					                           	<div class="panel panel-primary">
+									                <div class="panel-heading clearfix">
+									                	<h3 class="panel-title pull-left">Chofer asignado</h3> 
+									                </div>
+									              	<div id="chofer" class="list-group">
+										                <div class="list-group-item">
+										                  <strong id="ruta-chofer">Juan Jimenez, Masculino, 0414-3059201</strong>
+										                  <label id="ruta-chofer-auto">Ford Focus azul 4 puertas</label>
+										                </div>
+
+									              	</div>
+					   
+									            </div>
+									            <br>
+									            <div class="panel panel-primary">
+									                <div class="panel-heading clearfix">
+									                	<h3 class="panel-title pull-left">Tarifa</h3> 
+									                </div>
+									              	<div id="tarifa" class="list-group">
+										                <div class="list-group-item">
+										                  <strong>Total a pagar:</strong>
+										                  <label id="ruta-tarifa">5.000,00 Bs</label>
+										                </div>
+
+									              	</div>
+					   
+									            </div>
+				                           </div>
+
+								        </div>
+								      </div>
+								    </div>
+								  </div>
+								</div>	
+	            			</div>
+	            		</div>
+		            		
+		            	
 
 			        </div><!--list-details-->
 	            </div>

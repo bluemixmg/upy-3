@@ -7,6 +7,7 @@ html,body{
 	background:#fff;
 	font-size: 100%;
 	font-family: 'Lato', sans-serif;
+	padding-top: 0 !important;
 }
 body a{
 	transition: 0.5s all;
@@ -1890,4 +1891,12 @@ overflow: auto;
 .panel-footer{
 	background-color: #243238 !important;
     color: white !important;
+}
+
+a[data-toggle=collapse]:hover,a[data-toggle="collapse"]:focus{
+	color: white !important;
+}
+
+#listado_rutas .list-group-item{
+	margin-left: 0;
 }
