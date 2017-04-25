@@ -3,6 +3,7 @@ package com.upy.model;
 import java.util.Date;
 
 public class SolicitudServicio {
+	private int id;
 	private ClasificacionVehiculo clasifVeh;
 	private Sucursal sucursal;
 	private Sentido sentido;
@@ -31,6 +32,13 @@ public class SolicitudServicio {
 		this.fechaFin = fechaFin;
 		this.estatus = estatus;
 		this.turno = turno;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public ClasificacionVehiculo getClasifVeh() {
 		return clasifVeh;

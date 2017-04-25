@@ -197,5 +197,10 @@ public static Date CnvStringHora(String hora)
 	   String[] palabras = cadena.split(delimitadores);
 	   return palabras;
    }
+   
+   public static String formatDate(Date fecha){
+	   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	   return dateFormat.format(fecha);   
+   }
 
 }

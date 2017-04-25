@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Turno {
 	
+	private int id;
 	private String nombre;
 	private Date hora_inicio;
 	private Date hora_fin;
@@ -18,6 +19,13 @@ public class Turno {
 		this.hora_inicio = hora_inicio;
 		this.hora_fin = hora_fin;
 		this.estatus = estatus;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNombre() {
 		return nombre;

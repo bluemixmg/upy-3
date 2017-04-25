@@ -6,12 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import com.upy.config.ConexionBD;
-
+import com.upy.config.Validacion;
 import com.upy.model.SolicitudServicio;
 
 public class SolicitudServicioDao {
 
-	
+	//CRUD
 	public boolean insert(SolicitudServicio solicitud) {
 		
 		boolean registrado=false;
@@ -22,9 +22,17 @@ public class SolicitudServicioDao {
 				if(c!= null){
 					Statement st;
 					st = c.createStatement();
-					String sql = "INSERT INTO solicitud_servicio VALUES (";
-					//Aqui va el resto de la sentencia SQL
-					st.executeUpdate(sql);
+					String sql = "INSERT INTO solicitud_servicio (clasifica_vehiculo, id_sucursal, id_sentido, id_frecuencia, hora, fecha_inicio, fecha_fin, estatus, id_turno) VALUES (";
+					sql += solicitud.getClasifVeh().getId()+",";
+					sql += solicitud.getSucursal().getId()+",";
+					sql += solicitud.getSentido().getId()+",";
+					sql += solicitud.getFrecuencia().getId()+",";
+					sql += Validacion.Apost(Validacion.CnvHoraString(solicitud.getHora()))+",";
+					sql += Validacion.Apost(Validacion.formatDate(solicitud.getFechaInicio()))+",";
+					sql += Validacion.Apost(Validacion.formatDate(solicitud.getFechaFin()))+",";
+					sql += Validacion.Apost("NO APROBADA")+",";
+					sql += solicitud.getTurno().getId()+");";
+ 					st.executeUpdate(sql);
 					st.close();
 					registrado=true;
 				}
@@ -42,7 +50,7 @@ public class SolicitudServicioDao {
 	}
 
 	
-	public ArrayList<SolicitudServicio> get() {
+	public ArrayList<SolicitudServicio> get(String rifSucursal) {
 		
 		ArrayList<SolicitudServicio> aSolicitudesS = new ArrayList<SolicitudServicio>();
 		ResultSet solicitudes = null;
@@ -53,13 +61,25 @@ public class SolicitudServicioDao {
 				if(c!= null){
 					Statement st;
 					st = c.createStatement();
-					//Definir condicion para el WHERE del SELECT
-					String sql = "SELECT * FROM solicitud_servicio WHERE estatus != 'E'";
+					String sql = "SELECT * FROM solicitud_servicio WHERE estatus = 'APROBADA' AND id_sucursal="+Validacion.Apost(rifSucursal);
 					solicitudes = st.executeQuery(sql);
 					try{
+						ClasificacionVehiculoDao cVehDao = new ClasificacionVehiculoDao();
+						SucursalDao sucDao = new SucursalDao();
+						FrecuenciaDao frecDao = new FrecuenciaDao();
+						SentidoDao sentDao = new SentidoDao();
+						TurnoDao turnDao = new TurnoDao();
 						while(solicitudes.next()){
 							SolicitudServicio ss= new SolicitudServicio();
-							//Settear cada Solicitud de Servicio traida en el ResultSet
+							ss.setClasifVeh(cVehDao.getUnaClasificacion(solicitudes.getInt("id")));
+							ss.setEstatus(solicitudes.getString("estatus"));
+							ss.setFechaFin(solicitudes.getDate("fecha_fin"));
+							ss.setFechaInicio(solicitudes.getDate("fecha_inicio"));
+							ss.setFrecuencia(frecDao.getUnaFrecuencia(solicitudes.getInt("id_frecuencia")));
+							ss.setHora(solicitudes.getTimestamp("hora"));
+							ss.setSentido(sentDao.getUnSentido(solicitudes.getInt("id_sentido")));
+							ss.setSucursal(sucDao.getUnaSucursal(solicitudes.getInt("id_sucursal")));
+							ss.setTurno(turnDao.getUnTurno(solicitudes.getInt("id_turno")));
 							aSolicitudesS.add(ss);
 						}
 					}catch(SQLException e){
@@ -91,8 +111,11 @@ public class SolicitudServicioDao {
 					Statement st;
 					st = c.createStatement();
 					String sql = "UPDATE solicitud_servicio SET ";
-					//Completar SQL
-					sql += " WHERE id=" +"CONDICION";
+					sql += "hora="+Validacion.Apost(Validacion.CnvHoraString(solicitud.getHora()))+",";
+					sql += "id_frecuencia="+solicitud.getFrecuencia().getId()+",";
+					sql += "id_sentido="+solicitud.getSentido().getId()+",";
+					sql += "fecha_final="+Validacion.formatDate(solicitud.getFechaInicio())+",";
+					sql += " WHERE id="+solicitud.getId();
 					st.executeUpdate(sql);
 					st.close();
 					modificado = true;
@@ -119,7 +142,7 @@ public class SolicitudServicioDao {
 				if(c!= null){
 					Statement st;
 					st = c.createStatement();
-					String sql = "UPDATE solicitud_servicio SET estatus ="; //Completar SQL
+					String sql = "UPDATE solicitud_servicio SET estatus ='E' WHERE id="+solicitud.getId();
 					st.executeUpdate(sql);
 					st.close();
 					eliminado = true;
@@ -136,6 +159,9 @@ public class SolicitudServicioDao {
 		return eliminado;
 	}
 
+	//Tablas puente
+	
+	
 	
 
 }

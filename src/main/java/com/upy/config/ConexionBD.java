@@ -14,14 +14,14 @@ private Connection connection = null;
         
         //Paso 2
         String host = "echo-01.db.elephantsql.com";
-        String dbName = "";
+        String dbName = "lfdigzlq";
         int port = 5432;
         String urlConnection = "jdbc:postgresql://" +  host + ":" 
                 + port + "/" + dbName;
         
         //Paso 3
-        String username = "";
-        String password = "";
+        String username = "lfdigzlq";
+        String password = "duosY652bGA1qWV4qgk71WdsH4QPVGN3";
         connection = DriverManager.getConnection(urlConnection, username, password);
         connection.setAutoCommit(true);
         System.out.println("Conexion Exitosa");

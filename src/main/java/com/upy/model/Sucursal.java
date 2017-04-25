@@ -1,6 +1,9 @@
 package com.upy.model;
 
 public class Sucursal {
+	private int id;
+
+
 	private String nombre;
 	private String telefono;
 	private String email;
@@ -27,7 +30,13 @@ public class Sucursal {
 		this.estatus = estatus;
 		this.empresa = empresa;
 	}
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}

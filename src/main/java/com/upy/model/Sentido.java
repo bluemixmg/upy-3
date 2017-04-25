@@ -1,6 +1,7 @@
 package com.upy.model;
 
 public class Sentido {
+	private int id;
 	private String nombre;
 	private String estatus;
 	
@@ -16,6 +17,13 @@ public class Sentido {
 		super();
 		this.nombre = nombre;
 		this.estatus = estatus;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNombre() {
 		return nombre;
