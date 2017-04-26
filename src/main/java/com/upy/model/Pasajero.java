@@ -1,7 +1,7 @@
 package com.upy.model;
 
 public class Pasajero {
-	
+	private int id;
 	private Sucursal sucursal;
 	private Cargo cargo;
 	private String cedula;
@@ -31,6 +31,15 @@ public class Pasajero {
 		this.longitud = longitud;
 		this.estatus = estatus;
 		this.sexo = sexo;
+	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Sucursal getSucursal() {

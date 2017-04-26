@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import com.upy.config.ConexionBD;
 import com.upy.config.Validacion;
+import com.upy.model.Pasajero;
 import com.upy.model.SolicitudServicio;
 
 public class SolicitudServicioDao {
@@ -162,6 +163,76 @@ public class SolicitudServicioDao {
 	//Tablas puente
 	
 	
+	public ArrayList<Pasajero> getPasajerosPorSolicitud(int idSolicitud) {
+		
+		ArrayList<Pasajero> aPasajeros = new ArrayList<Pasajero>();
+		ResultSet rs = null;
+		try{
+			try {
+				ConexionBD bd = new ConexionBD();
+				Connection c = bd.getConexion();
+				if(c!= null){
+					Statement st;
+					st = c.createStatement();
+					String sql = "SELECT * FROM pasajero_solicitud_servicio WHERE id_solicitud_servicio="+idSolicitud;
+					rs = st.executeQuery(sql);
+					try{
+						PasajeroDao pasaDao = new PasajeroDao();
+						while(rs.next()){
+							aPasajeros.add(pasaDao.getUnPasajero(rs.getInt("id_pasajero")));
+						}
+					}catch(SQLException e){
+						e.printStackTrace();
+					}
+					st.close();
+				}
+			bd.closeConexion();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+
+		return aPasajeros;
+	}
 	
+public ArrayList<String> getDiasPorSolicitud(int idSolicitud) {
+		
+		ArrayList<String> aDias = new ArrayList<String>();
+		ResultSet rs = null;
+		try{
+			try {
+				ConexionBD bd = new ConexionBD();
+				Connection c = bd.getConexion();
+				if(c!= null){
+					Statement st;
+					st = c.createStatement();
+					String sql = "SELECT dia.id, dia.nombre as nombredia FROM dia, solicitud_dia WHERE  solicitud_dia.id_solicitud="+idSolicitud;
+					sql += " AND dia.id=solicitud_dia.id_dia";
+					rs = st.executeQuery(sql);
+					try{
+						while(rs.next()){
+							aDias.add(rs.getString("nombredia"));
+						}
+					}catch(SQLException e){
+						e.printStackTrace();
+					}
+					st.close();
+				}
+			bd.closeConexion();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+
+		return aDias;
+	}
+
+
 
 }
