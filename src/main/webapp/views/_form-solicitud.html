@@ -1,0 +1,222 @@
+				<form id="example-advanced-form" action="#">
+				    <h3>Solicitud</h3>
+				    <fieldset>
+				        <legend>Información del Traslado</legend>
+				 		<div class="container-fluid">
+				 			<div class="row">
+				 				<div class="col-sm-4">
+				 					Hora: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione la hora del día a la que se llevará a cabo el traslado. (Hora y minutos)"></span>
+				 					<div class="container-fluid">
+				 						<div class="col-sm-4 no-padding">
+						 					<select class="form-control" id="solicitud-hora" name="solicitud-hora">
+										    	<option value="01">01</option>
+										    	<option value="02">02</option>
+										    	<option value="03">03</option>
+										    	<option value="04">04</option>
+										    	<option value="05">05</option>
+										    	<option value="06">06</option>
+										    	<option value="07">07</option>
+										    	<option value="08">08</option>
+										    	<option value="09">09</option>
+										    	<option value="10">10</option>
+										    	<option value="11">11</option>
+										    	<option value="12">12</option>
+										  	</select>				 							
+				 						</div>
+				 						<div class="col-sm-4 no-padding">
+						 					<select class="form-control" id="solicitud-minutos" name="solicitud-minutos">
+										    	<option value="0">00</option>
+										    	<option value="15">15</option>
+										    	<option value="30">30</option>
+										    	<option value="45">45</option>
+										  	</select>				 							
+				 						</div>
+				 						<div class="col-sm-4 no-padding">
+										  	<select class="form-control" id="solicitud-turno" name="solicitud-turno">
+										    	<option value="AM">AM</option>
+										    	<option value="PM">PM</option>
+										  	</select>				 							
+				 						</div>
+				 					</div>
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Días:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione los días de la semana en los que se llevará a cabo el traslado. (L:Lunes, Ma:Martes, Mi:Miercoles, J:Jueves, V:Viernes, S:Sábado, D:Domingo)"></span>
+				 					<br>
+				 					<div class="checkbox">
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="1">
+											L
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="2">
+											Ma
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="3">
+											Mi
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="4">
+											J
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="5">
+											V
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="6">
+											S
+										</label>
+										<label>
+											<input type="checkbox" name="solicitud-dias[]" value="7">
+											D
+										</label>
+									</div>
+			
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Sentido: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="left" title="Seleccione el sentido del traslado. (Normal: Traslado desde la sucursal hasta la dirección de cada pasajero. Inverso: Traslado desde la ubicación de los pasajeros hasta la sucursal.)"></span>
+				 					<br>
+				 					<div class="radio">
+										<label>
+											<input type="radio" name="solicitud-sentido" value="1" checked="">
+											Normal
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="solicitud-sentido" value="2">
+											Inverso
+										</label>
+									</div>
+				 				</div>
+				 			</div>
+				 			<div class="row">
+				 				<div class="col-sm-4">
+				 					Apartir de:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione la fecha desde la cual se empezarán a realizar los traslados."></span> 
+				 					<input type="text" class="date form-control" name="solicitud-fecha" id="solicitud-fecha" required/>
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Repetir: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione las veces que se realizará el traslado solicitado. (No repetir: solo se realizará el traslado solicitado la semana seleccionada. Semanalmente: Se repetirá el traslado cada semana. Mensualmente: Se repetirá el traslado la misma semana de cada mes)"></span>
+				 					<select class="form-control" id="solicitud-repetir" name="solicitud-repetir">
+								    	<option value="1">No repetir</option>
+								    	<option value="2">Semanalmente</option>
+								    	<option value="3">Mensualmente</option>
+								  	</select>
+				 				</div>
+				 				<div class="col-sm-4">
+				 					Repetir hasta: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="left" title="Seleccione hasta cuando se repetirán los traslados (en caso de repetirse)"></span>
+				 					<select class="form-control" id="solicitud-repetir-hasta" name="solicitud-repetir-hasta">
+								    	<option value="1">Fin del Mes Actual</option>
+								    	<option value="2">Fin del Próximo Mes</option>
+								    	<option value="3">Fin del Año Actual</option>
+								    	<option value="4">Fecha Específica</option>
+								  	</select>
+								  	<input type="text" class="date hide" name="solicitud-repetir-hasta-fecha" id="solicitud-repetir-hasta-fecha"/>
+				 				</div>
+				 			</div>
+				 			<br>
+				 			<div class="row">
+				 				<div class="col-sm-12">
+				 					<label>Especificaciones del Auto <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione las especificaciones el auto que desea que le haga el traslado. (Clase A:, Clase B:, Clase C:)"></span></label>
+				 				</div>
+				 				<div class="col-sm-12">
+
+				 					<div class="radio">
+
+										<label>
+											<input type="radio" name="solicitud-auto" value="1" checked>
+											Clase A
+										</label>
+										<label>
+											<input type="radio" name="solicitud-auto" value="2">
+											Clase B
+										</label>
+										<label>
+											<input type="radio" name="solicitud-auto" value="3">
+											Clase C
+										</label>
+									</div>
+				 				</div>
+				 			</div>
+				 		</div>
+				        <p>(*) Campo obligatorio</p>
+				    </fieldset>
+				 
+				    <h3>Pasajeros</h3>
+				    <fieldset>
+				        <legend>Lista de Pasajeros <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="Seleccione los pasajeros a los cuales se les hará el traslado solicitado."></span></legend>
+				 		<div class="checkbox">
+						  <label><input type="checkbox" name="pasajeros[]" value="1">Juan Castillo, 21.432.4522</label>
+						</div>
+						<div class="checkbox">
+						  <label><input type="checkbox" name="pasajeros[]" value="2">Carmen Hernandez, 17.234.642</label>
+						</div>
+						<div class="checkbox">
+						  <label><input type="checkbox" name="pasajeros[]" value="3">Maikel Zambrano, 24.214.618</label>
+						</div>
+				    </fieldset>
+				 				 
+				    <h3>Confirmación</h3>
+				    <fieldset>
+				        <legend>Confirmación de la solicitud</legend>
+				 		<div class="container-fluid">
+				 			<div class="row">
+				 				<div class="col-sm-4 form-resumen-hora">
+				 					Hora: <p> 08:00 AM </p> 
+				 				</div>
+				 				<div class="col-sm-4 form-resumen-dias">
+				 					Días: <p> L M V </p> 
+				 				</div>
+				 				<div class="col-sm-4 form-resumen-sentido">
+				 					Sentido: <p> Normal </p> 
+				 				</div>
+				 			</div>
+				 			<div class="row">
+				 				<div class="col-sm-4 form-resumen-fecha-inicio">
+				 					A partir de: <p> 29/04/2017 </p> 
+				 				</div>
+				 				<div class="col-sm-4 form-resumen-repeticion">
+				 					Repetir: <p> Semanalmente </p> 
+				 				</div>
+				 				<div class="col-sm-4 form-resumen-hasta">
+				 					Hasta: <p> Fin del Mes Actual </p> 
+				 				</div>
+				 			</div>
+				 			<div class="row">
+				 				<div class="col-sm-4 form-resumen-fecha-auto">
+				 					Auto: <p> Clase A </p> 
+				 				</div>
+				 				<div class="col-sm-4 form-resumen-sucursal">
+				 					Sucursal: <p> Sambil </p> 
+				 				</div>
+				 				<div class="col-sm-4 form-resumen-cantidad">
+				 					Cantidad de Pasajeros: <p> 2 </p> 
+				 				</div>
+				 			</div>
+				 			<br>
+				 			<div class="row">
+				 				<div class="col-sm-12">
+				 					Listado de Pasajeros:
+				 					<div class="container-fluid">
+					 					<ul>
+					 						<li>Juan Castillo, 21.432.4522</li>
+					 						<li>Maikel Zambrano, 24.214.618</li>
+					 					</ul> 				 						
+				 					</div>
+
+				 				</div>
+				 				
+				 			</div>
+				 			<br>
+				 			<div class="row">
+				 				<div class="col-sm-12">
+				        			<input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <strong for="acceptTerms-2">Estoy de acuerdo con la solicitud de la orden.</strong>				 					
+				 				</div>
+				 			</div>
+				 		</div>
+
+				    </fieldset>
+				</form>		        
