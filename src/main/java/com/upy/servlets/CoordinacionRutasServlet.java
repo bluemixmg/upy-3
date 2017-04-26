@@ -1,4 +1,4 @@
-package controller;
+package servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,26 +18,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.RutaDao;
-import dao.SolicitudServicioDao;
-import dao.PasajeroDao;
-import model.SolicitudServicio;
-import model.Ruta;
-import model.Pasajero;
-import model.Sucursal;
+import com.upy.dao.RutaDao;
+import com.upy.dao.SolicitudServicioDao;
+import com.upy.dao.PasajeroDao;
+import com.upy.model.SolicitudServicio;
+import com.upy.model.Ruta;
+import com.upy.model.Pasajero;
+import com.upy.model.Sucursal;
 
 /**
  * Servlet implementation class IdeaServlet
  */
 @WebServlet(name = "CoordinacionRutas", urlPatterns = { "/coordinacion-rutas" })
-public class IdeasServlet extends HttpServlet {
+public class CoordinacionRutasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String COORDINACION_RUTAS_JSP =  "coordinacion-rutas.jsp";
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IdeasServlet() {
+    public CoordinacionRutasServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
