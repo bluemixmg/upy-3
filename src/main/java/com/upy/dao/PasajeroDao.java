@@ -46,6 +46,7 @@ public class PasajeroDao {
 					rs = st.executeQuery(sql);
 					try{
 						SucursalDao sucDao = new SucursalDao();
+						CargoDao cargoDao = new CargoDao();
 						while(rs.next()){
 							pasajero.setId(id);
 							pasajero.setCedula(rs.getString("cedula"));
@@ -56,6 +57,7 @@ public class PasajeroDao {
 							pasajero.setLongitud(rs.getDouble("longitud"));
 							pasajero.setTelefono(rs.getString("telefono"));
 							pasajero.setSucursal(sucDao.getUnaSucursal(rs.getInt("id_sucursal")));
+							pasajero.setCargo(cargoDao.getUnCargo(rs.getInt("id_cargo")));
 							//Faltan agregar los atributos de tipo objeto pertenecientes a este modelo
 						}
 					}catch(SQLException e){
