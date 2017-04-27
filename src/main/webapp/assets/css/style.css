@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6,label,p{
 }
 /*--header--*/
 .header {
-	background:url(../assets/images/quienes-somos-upy3.jpg) no-repeat;
+	background:url(../images/quienes-somos-upy3.jpg) no-repeat;
 	width:100%;
 	background-size:cover;
 	-webkit-background-size:cover;

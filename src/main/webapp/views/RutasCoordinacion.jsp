@@ -164,7 +164,7 @@
 	</head>
 	<body>
 
-	    <header class="Header">
+	    <header class="header">
 		    <div class="container">
 		        <dir class="row">
 		            <div class="col-sm-12">
