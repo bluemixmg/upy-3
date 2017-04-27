@@ -52,7 +52,7 @@
               padding: 0;
              }
             #map {
-             height: 50%;
+             height: 400px;
              float: center;
              width: 100%;
              margin-top: 20px;
@@ -448,9 +448,6 @@
 
 						      }
 
-						      $(document).ready(function(){
-						      	initMap();
-						      });
 				    	</script>
 		            	<div id="map">		            		
 		            	</div>
