@@ -1903,10 +1903,24 @@ a[data-toggle=collapse]:hover,a[data-toggle="collapse"]:focus{
 
 .login-center{
 	background: url("../images/loginupy.jpg");
+	padding: 20px;
 }
 
 .login-panel{
 	background-color: white;
 	border: solid 1px black;
 	border-radius: 5px;
+}
+
+.login-panel > div > div > div {
+	background-color: #0059ba;
+    border-radius: 10px 10px 0 0;
+} 
+
+.login-panel > div > div > div > h3{
+	text-align: center;
+    background-color: #0059ba;
+    color: white;
+    font-weight: bold;
+    font-size: : 2em;
 }

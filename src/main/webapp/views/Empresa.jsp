@@ -31,7 +31,7 @@
 		<link href="https://developers.google.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
 		
         <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEbmBMEdo7M5E4Y5XSMY5sDxaQ7g6ZITc&callback=initMap">
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEbmBMEdo7M5E4Y5XSMY5sDxaQ7g6ZITc&callback=iniciar_Mapas">
         </script>	
 
 		<script src="../assets/js/locationpicker.jquery.js"></script>
@@ -136,9 +136,9 @@
 		</script>
 		  	
 	</head>
-	<body onload="iniciar_Mapas()">
+	<body>
 
-	    <header class="Header">
+	    <header class="header">
 		    <div class="container">
 		        <dir class="row">
 		            <div class="col-sm-12">

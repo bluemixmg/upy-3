@@ -48,14 +48,11 @@
 	</head>
 	<body>
 
-	    <header class="header">
+	    <header class="header-login">
 		    <div class="container">
 		        <dir class="row">
 		            <div class="col-sm-12">
 		            
-		                <div class="menu info-top">
-		                   <a href="logout.php" class="boton boton-sesion">Cerrar sesión</a>
-		                </div>
 		                <figure class="logo">
 		                   <a href="index.php"><img src="http://upy3.com/wp-content/themes/upy3/img/logo-upy3.png" height="88" width="116"></a>
 		                </figure>
@@ -67,7 +64,7 @@
 
 	
 		<div class="container-fluid login-center">
-			<div class="col-sm-4 col-offset-sm-8">
+			<div class="col-sm-4 col-sm-offset-8">
 				<div class="login-panel">
 					<div class="container-fluid">
 						<div class="row">
