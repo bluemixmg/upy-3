@@ -1,5 +1,6 @@
 package com.upy.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SolicitudServicio {
@@ -13,6 +14,8 @@ public class SolicitudServicio {
 	private Date fechaFin;
 	private String estatus;
 	private Turno turno;
+	private ArrayList<Pasajero> pasajeros;
+	private ArrayList<String> dias;
 	
 	
 	public SolicitudServicio() {
@@ -93,6 +96,18 @@ public class SolicitudServicio {
 	}
 	public void setTurno(Turno turno) {
 		this.turno = turno;
+	}
+	public ArrayList<Pasajero> getPasajeros() {
+		return pasajeros;
+	}
+	public void setPasajeros(ArrayList<Pasajero> pasajeros) {
+		this.pasajeros = pasajeros;
+	}
+	public ArrayList<String> getDias() {
+		return dias;
+	}
+	public void setDias(ArrayList<String> dias) {
+		this.dias = dias;
 	}
 	
 }

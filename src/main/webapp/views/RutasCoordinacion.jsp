@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.upy.model.Pasajero" %>
+<%@ page import="com.upy.model.SolicitudServicio" %>
+<%@ page import="com.upy.model.Ruta" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -194,6 +198,8 @@
 	    <div class="tab-content">
 			        <!--ORDEN DE SERVICIO-->
 	        <div id="solicitudes" class="tab-pane fade">
+	        <% ArrayList<SolicitudServicio> solicitudes = new ArrayList<SolicitudServicio>(); %>
+	        <% solicitudes = (ArrayList<SolicitudServicio>)session.getAttribute("solicitudes"); %>
 	            <div class="cont5ainer">
 	            	<div class="col-sm-4">
 	            		<div class="bootcards-list">
@@ -215,6 +221,9 @@
 				              </div>                
 				            </div>
 						    <div class="list-group">
+						    <% int i=0; %>
+						    <% for(SolicitudServicio solicitud : solicitudes) { %>
+						    <% i++; %>
 						      <a class="list-group-item active" href="#">
 						        <div class="row">
 						          <div class="col-sm-6">
@@ -222,21 +231,23 @@
 						          		<i class="fa fa-3x fa-address-book pull-left"></i>	
 						          	</div>
 						          	<div class="col-sm-8">
-							            <h4 class="list-group-item-heading">#1</h4>
-							            <p class="list-group-item-text">Sucursal: Sambil</p>
-							            						          		
+							            <h4 class="list-group-item-heading"><%= i %></h4>
+							            <p class="list-group-item-text" value="<%= solicitud.getSucursal().getId() %>">Sucursal: <%= solicitud.getSucursal().getNombre() %></p>   						          		
 						          	</div>
-						            
-
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">Día(s):L M V</p>
-						            <p class="list-group-item-text">Hora: 9:00 AM</p>
-						            <p class="list-group-item-text">Pasajeros: 3</p>
+						          <% String dias=""; %>
+						          <% for(String dia: solicitud.getDias()){ %>
+						          <%	dias+=dia.charAt(0)+" "; %>
+						          <%} %>
+						            <p class="list-group-item-text">Día(s):<%=dias %></p>
+						            <p class="list-group-item-text">Hora: <%= solicitud.getHora() %></p>
+						            <p class="list-group-item-text">Pasajeros: <%= (int)solicitud.getPasajeros().size() %></p>
 						          </div>
 						        </div>
 						      </a>
-						      <a class="list-group-item" href="#">
+						      <% } %>
+						      <!--  <a class="list-group-item" href="#">
 						        <div class="row">
 						          <div class="col-sm-6">
 						          	<div class="col-sm-4">
@@ -297,7 +308,7 @@
 						            <p class="list-group-item-text">Pasajeros: 3</p>
 						          </div>
 						        </div>
-						      </a>
+						      </a>-->
 						    </div>
 						  </div>
 						</div>
@@ -309,9 +320,11 @@
 					<div id="paginacion" class="col-sm-8">
 					<div id="elementos" class="row">
 						<div class="col-sm-6">
+						<% ArrayList<Ruta> rutas =(ArrayList<Ruta>)session.getAttribute("rutas"); %>
+						<%for(Ruta ruta: rutas){ %>
 							<div class="panel panel-primary">
 				                <div class="panel-heading clearfix">
-				                	<h3 class="panel-title pull-left">Ruta #1</h3>
+				                	<h3 class="panel-title pull-left">Ruta #<%=ruta.getId() %></h3>
 									<div class="my-icon pull-right" style="margin-top: 10px"><i id="ic-verModal" class="fa fa-hand-pointer-o" aria-hidden="true"></i></div> 
 				                </div>
 				              	<div id="lista-paradas" class="list-group">
@@ -323,15 +336,18 @@
 					                <!--DRAG & DROP-->
 
 					                <ul id="sortable1" class="connectedSortable">
-
+										<% ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>(); %>
+										<% pasajeros = (ArrayList<Pasajero>)ruta.getPasajeros(); %>
+										<% for(Pasajero pasajero: pasajeros){ %>
 					                  <li class="ui-state-default">					                  	
 					                   <div class="list-group-item">
-					                     <strong><font size="2">C: Urb. Nueva Segovia, Calle 3</font></strong>
-					                     <label>William Alvarez, 0414-3059301</label>
+					                     <strong><font size="2">C: <%=pasajero.getDireccion() %></font></strong>
+					                     <label><%=pasajero.getNombres()+" "+pasajero.getApellidos()+" "+pasajero.getTelefono() %></label>
 					                   </div>
 					                  </li>
+					                  <% } %>
 
-					                  <li class="ui-state-default">
+					                  <!-- <li class="ui-state-default">
 					                   <div class="list-group-item">
 					                     <strong><font size="2">D: Urb. Central</font></strong>
 					                     <label>Oscar Perez, Masculino, 0414-4059301</label>
@@ -350,7 +366,7 @@
 					                     <strong><font size="2">F: Urb. Oeste</font></strong>
 					                     <label>Jesus Gutierrez, 0414-4059302</label>
 					                   </div>
-					                  </li>
+					                  </li>-->
 
 					                </ul>
 
@@ -359,9 +375,10 @@
 				              	</div>
    
 				            </div>
+				            <% } %>
 						</div>
 
-						<div class="col-sm-6">
+						<!-- <div class="col-sm-6">
 							<div class="panel panel-primary">
 				                <div class="panel-heading clearfix">
 				                	<h3 class="panel-title pull-left">Ruta #2</h3> 
@@ -371,11 +388,11 @@
 
 					                <div class="list-group-item">
 					                  <strong><font size="2">A: Sucursal</font></strong>
-					                </div>
+					                </div>-->
 
 					                <!--DRAG & DROP-->
 
-					                <ul id="sortable1" class="connectedSortable">
+					                <!-- <ul id="sortable1" class="connectedSortable">
 
 					                  <li class="ui-state-default">					                  	
 					                   <div class="list-group-item">
@@ -405,14 +422,13 @@
 					                   </div>
 					                  </li>
 
-					                </ul>
+					                </ul>-->
 
 					                <!--DRAG & DROP-->
 
-				              	</div>
-   
+				              	<!--</div>
 				            </div>
-						</div>
+						</div>-->
 						</div>
 						<div class="col-sm-2">
 						</div>
@@ -706,6 +722,60 @@
 		  </div>
 		</div>
 
+		<!-- Modal por Ruta -->
+		<div class="modal fade" id="myModalRuta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Ruta #1</h4>
+		      </div>
+		      <div class="modal-body">
+		         <div class="col-sm-4">
+		                           Chofer asignado: 
+				 				    <select class="form-control" id="chofer-asignado" name="chofer-asignado">
+								    	<option value="1">Jose Miguel</option>
+								    	<option value="2">Maria Jose</option>
+								    	<option value="3">Jose Maria</option>
+								  	</select>
+				
+			     </div>
+			     <div class="col-sm-2">
+			     </div>
+			     <div class="col-sm-4">
+			      Tarifa: 5.000,00
+			     </div>
+			   
+		      <legend>Lista de pasajeros</legend>
+
+		         <table id="tb-pasajeros" class="table table-fixed table-hover">
+                  <thead>
+                    <tr>
+                     <th class="col-xs-2">Nombres</th><th class="col-xs-2">Apellidos</th><th class="col-xs-2">Cedula</th><th class="col-xs-3">Cargo</th><th class="col-xs-3">Telefono</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                     <td class="col-xs-2">Luis Jose</td><td class="col-xs-2">Perez Suarez</td><td class="col-xs-2">20.768.456</td><td class="col-xs-3">Gerente</td><td class="col-xs-3">0412-223-4444</td>
+                    </tr>
+                    <tr>
+                     <td class="col-xs-2">Luis Jose</td><td class="col-xs-2">Perez Suarez</td><td class="col-xs-2">20.768.456</td><td class="col-xs-3">Gerente</td><td class="col-xs-3">0412-223-4444</td>
+                    </tr>
+                     <tr>
+                     <td class="col-xs-2">Luis Jose</td><td class="col-xs-2">Perez Suarez</td><td class="col-xs-2">20.768.456</td><td class="col-xs-3">Gerente</td><td class="col-xs-3">0412-223-4444</td>
+                    </tr>
+                                      
+                  </tbody>
+                </table>
+
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	    <!-- FOOTER -->
 		<footer class="panel-footer">
 		  	<div class="container-fluid">
@@ -755,5 +825,8 @@
 		$("#btn-modal").click(function(){
 			$("#myModal").modal('toggle');
 		});
+		$("#ic-verModal").click(function(){
+			$("#myModalRuta").modal('toggle');
+		});;
 	</script>
 </html>

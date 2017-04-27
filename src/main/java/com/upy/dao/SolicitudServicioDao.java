@@ -51,7 +51,7 @@ public class SolicitudServicioDao {
 	}
 
 	
-	public ArrayList<SolicitudServicio> get(String rifSucursal) {
+	public ArrayList<SolicitudServicio> get(int id) {
 		
 		ArrayList<SolicitudServicio> aSolicitudesS = new ArrayList<SolicitudServicio>();
 		ResultSet solicitudes = null;
@@ -62,7 +62,7 @@ public class SolicitudServicioDao {
 				if(c!= null){
 					Statement st;
 					st = c.createStatement();
-					String sql = "SELECT * FROM solicitud_servicio WHERE estatus = 'APROBADA' AND id_sucursal="+Validacion.Apost(rifSucursal);
+					String sql = "SELECT * FROM solicitud_servicio WHERE estatus = 'APROBADA' AND id_sucursal="+id;
 					solicitudes = st.executeQuery(sql);
 					try{
 						ClasificacionVehiculoDao cVehDao = new ClasificacionVehiculoDao();
@@ -77,10 +77,12 @@ public class SolicitudServicioDao {
 							ss.setFechaFin(solicitudes.getDate("fecha_fin"));
 							ss.setFechaInicio(solicitudes.getDate("fecha_inicio"));
 							ss.setFrecuencia(frecDao.getUnaFrecuencia(solicitudes.getInt("id_frecuencia")));
-							ss.setHora(solicitudes.getTimestamp("hora"));
+							ss.setHora(solicitudes.getTime("hora"));
 							ss.setSentido(sentDao.getUnSentido(solicitudes.getInt("id_sentido")));
 							ss.setSucursal(sucDao.getUnaSucursal(solicitudes.getInt("id_sucursal")));
 							ss.setTurno(turnDao.getUnTurno(solicitudes.getInt("id_turno")));
+							ss.setPasajeros(this.getPasajerosPorSolicitud(id));
+							ss.setDias(this.getDiasPorSolicitud(id));
 							aSolicitudesS.add(ss);
 						}
 					}catch(SQLException e){
