@@ -1900,3 +1900,13 @@ a[data-toggle=collapse]:hover,a[data-toggle="collapse"]:focus{
 #listado_rutas .list-group-item{
 	margin-left: 0;
 }
+
+.login-center{
+	background: url("../images/loginupy.jpg");
+}
+
+.login-panel{
+	background-color: white;
+	border: solid 1px black;
+	border-radius: 5px;
+}
