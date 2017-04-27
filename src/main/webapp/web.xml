@@ -59,5 +59,27 @@
 		<servlet-name>CoordinacionRutasServlet</servlet-name>
 		<url-pattern>/coordinacion-rutas</url-pattern>
 	</servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>EmpresaServlet</servlet-name>
+    <servlet-class>com.upy.servlets.EmpresaServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>EmpresaServlet</servlet-name>
+    <url-pattern>/empresa</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.upy.servlets.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
 	
 </web-app>

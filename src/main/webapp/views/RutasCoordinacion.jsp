@@ -197,6 +197,16 @@
 	    <br>
 	    <div class="tab-content">
 			        <!--ORDEN DE SERVICIO-->
+	      <!--EMPRESA-->
+	        <div id="empre" class="tab-pane active">
+	            
+	        </div>
+	        <!--EMPLEADOS-->
+	        <div id="empleados" class="tab-pane fade">
+	        	
+	        </div>
+	        
+	        <!--ORDEN DE SERVICIO-->
 	        <div id="solicitudes" class="tab-pane fade">
 	        <% ArrayList<SolicitudServicio> solicitudes = new ArrayList<SolicitudServicio>(); %>
 	        <% solicitudes = (ArrayList<SolicitudServicio>)session.getAttribute("solicitudes"); %>
@@ -472,6 +482,75 @@
 						</div>
 		            	
 						<div id="map">		            		
+                     </div>
+                     	<script>
+					      function initMap() {
+					        var directionsService = new google.maps.DirectionsService;
+					        var directionsDisplay = new google.maps.DirectionsRenderer;
+					        var map = new google.maps.Map(document.getElementById('map'), {
+					          zoom: 14,
+					          center: {lat: 10.0582636, lng: -69.3568179}
+					        });
+					        directionsDisplay.setMap(map);
+
+					        
+					        calculateAndDisplayRoute(directionsService, directionsDisplay, map);
+					        
+					      }
+
+				      		function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
+						        var waypts = [
+						        [{
+						           location:new google.maps.LatLng(10.0628694,-69.3532989),
+						           stopover:true
+						          }, {
+						           location:new google.maps.LatLng(10.0628694,-69.3532989),
+						           stopover:true
+						          }, {
+						           location:new google.maps.LatLng(10.0715739,-69.3280646),
+						           stopover:true
+						          }, {
+						           location:new google.maps.LatLng(10.0753345,-69.3175075),
+						           stopover:true
+						          }], 
+
+						          [{
+						           location:new google.maps.LatLng(10.0702328,-69.3352104),
+						           stopover:true
+						          }]
+
+						          ];
+
+						            var origins = [{
+						             location:new google.maps.LatLng(10.0636925,-69.3143244)
+						            }, {
+						             location:new google.maps.LatLng(10.075735,-69.3171568)
+						            }];
+						        
+						           for (var i=0; i<waypts.length; i++) {
+
+						          	directionsService.route({
+						              origin: origins[i],
+						              destination: new google.maps.LatLng(10.0679506, -69.2997834),
+						              waypoints: waypts[i],
+						              optimizeWaypoints: true,
+						              travelMode: 'DRIVING'
+						                }, function(response, status) {
+						                  if (status === 'OK') {
+						                  	directionsDisplay = new google.maps.DirectionsRenderer({map:map, preserveViewport: true});
+						                    directionsDisplay.setDirections(response);
+						                    var route = response.routes[0];
+						                 } else {
+						                    window.alert('Directions request failed due to ' + status);
+						                  }
+						               });            
+
+						           } <!--//For--> 
+
+						      }
+
+				    	</script>
+		            	<div id="map">		            		
 		            	</div>
 		            	 <br>
 
