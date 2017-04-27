@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6,label,p{
 }
 /*--header--*/
 .header {
-	background:url(../images/quienes-somos-upy3.jpg) no-repeat;
+	background:url(../assets/images/quienes-somos-upy3.jpg) no-repeat;
 	width:100%;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6,label,p{
 }
 .header-top{
 	min-height:250px;
-	background:url(../images/1.jpg) center;
+	background:url(../assets/images/1.jpg) center;
 }
 .logo {
 	float:left;
@@ -400,7 +400,7 @@ ul.social li {
   display: inline-block;
 }
 ul.social li a i {
-  background: url(../images/img-sprite.png) -2px -3px;
+  background: url(../assets/images/img-sprite.png) -2px -3px;
   width: 32px;
   height: 32px;
   display: block;
@@ -653,7 +653,7 @@ ul.grid-blog {
   display:inline-block;
 }
 .hvr-icon-wobble-horizontal:before {
-  content: url(../images/ar.png);
+  content: url(../assets/images/ar.png);
   position: absolute;
   right: 1em;
   font-family: FontAwesome;
