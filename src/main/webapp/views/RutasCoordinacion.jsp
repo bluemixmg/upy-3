@@ -192,281 +192,9 @@
 	    <!--TABS'S CONTENT-->
 	    <br>
 	    <div class="tab-content">
-	      <!--EMPRESA-->
-	        <div id="empre" class="tab-pane active">
-	            <div class="container">
-	            	<div class="panel panel-primary">
-					  <div class="panel-heading"><h3>Empresa: <i>Nombre de Empresa</i></h3></div>
-					  <div class="panel-body">
-					    <div> 
-	                        <!--Menu Izquierdo-->
-	                        <div class="col-md-3">
-	                            <ul class="nav nav-pills nav-stacked">
-	                                <li class="active"><a data-toggle="pill" href="#empresa_datos_basicos">Datos Básicos</a></li>
-	                                <li><a data-toggle="pill" href="#empresa_ubicaciones">Ubicaciones</a></li>
-	                            </ul>
-	                        </div>
-	                        <div class="col-md-9">
-		                        <!--//Menu Izquierdo-->
-		                        <div class="tab-content">
-		                            <!--TAB DATOS BASICOS-->
-		                            <div id="empresa_datos_basicos" class="tab-pane active">
-		                            	<div class="panel panel-info">
-										  <!-- Default panel contents -->
-										  <div class="panel-body">
-										    <form class="form-horizontal" id="form-datos-empresa">
-											  <div class="form-group">
-											    <label for="inputRif" class="col-sm-2 control-label">Rif</label>
-											    <div class="col-sm-9">
-											      <input class="form-control" id="inputRif" placeholder="Rif" value="J-21421023-3">
-											    </div>
-											  </div>
-											  <div class="form-group">
-											    <label for="inputNombre" class="col-sm-2 control-label">Nombre</label>
-											    <div class="col-sm-9">
-											      <input class="form-control" id="inputNombre" placeholder="Nombre" value="Nombre de la Empresa">
-											    </div>
-											  </div>
-											  <div class="form-group">
-											    <label for="inputTelefono" class="col-sm-2 control-label">Teléfono</label>
-											    <div class="col-sm-9">
-											      <input type="tel" class="form-control" id="inputTelefono" placeholder="Teléfono" value="582512345434">
-											    </div>
-											  </div>
-											  <div class="form-group">
-											    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-											    <div class="col-sm-9">
-											      <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="miempresa@miempresa.com">
-											    </div>
-											  </div>
-											  <div class="form-group">
-											    <div class="col-sm-offset-5 col-sm-2">
-											      <button type="button" onclick="actualizarDatosEmpresa();" class="btn btn-primary">Actualizar</button>
-											    </div>
-											  </div>
-											</form>
-										  </div>
-										</div>
-		                            </div>
-		                            
-		                            
-		                            <!--TAB UBICACIONES-->
-		                            <div id="empresa_ubicaciones" class="tab-pane fade">
-		                            	<div class="panel panel-info">
-										  <!-- Default panel contents -->
-										  <div class="panel-body">
-										  	<div class="container-fluid">
-										  		<div class="col-sm-3">
-										  			<div class="list-group" id="listado_ubicaciones">
-													  <button onclick="actualizarMapa(this)" type="button" class="list-group-item active" data-lat="10.073107" data-lon="-69.293147" data-tel="0251-2515642" data-nom="Sambil"><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Sambil</button>
-													  <button onclick="actualizarMapa(this)" type="button" class="list-group-item" data-lat="10.079480" data-lon="-69.281268" data-tel="0251-2515523" data-nom="Las Trinitarias"><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Las Trinitarias</button>
-													  <button onclick="actualizarMapa(this)" type="button" class="list-group-item" data-lat="10.062538" data-lon="-69.364611" data-tel="0251-2456642" data-nom="Metrópolis"><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Metrópolis</button>
-													  <button onclick="registrarUbicacion(this)" type="button" class="list-group-item" data-lat="10.062538" data-lon="-69.364611" data-tel=""><span class="badge"><span class="glyphicon glyphicon-plus"></span></span>Agregar Ubicación</button>
-													</div>
-										  		</div>
-										  		<div class="col-sm-9">
-										  			<div class="container-fluid">
-										  				<div class="col-sm-6">
-											  				<div class="input-group input-group-lg">
-															  	<span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-home"></span></span>
-															  	<input type="text" id="us2-nombre" class="form-control" placeholder="Nombre de la Sucursal" aria-describedby="sizing-addon3"/>												
-															</div>	
-											  			</div>
-											  			<div class="col-sm-6">
-											  				<div class="input-group input-group-lg">
-															  	<span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-earphone"></span></span>
-															  	<input type="text" id="us2-telefono" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon2"/>												
-															</div>		
-											  			</div>	
-										  			</div>
-										  			
-										  			<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
-													  	<input type="text" id="us2-address" class="form-control" placeholder="Username" aria-describedby="sizing-addon1"/>
-														<input type="hidden" id="us2-lat"/>
-														<input type="hidden" id="us2-lon"/>														
-													</div>
-													
-													<div id="mapa-ubicaciones" style="height:400px; width: 100%;visibility: hidden;display:block;">
-									  				
-									  				</div>
-													
-										  			
-										  			<div class="">
-										  				<div style="text-align: center;">
-										  					<button class="btn btn-primary" onclick="actualizarUbicacion();">Actualizar Ubicación</button>
-										  					<button class="btn btn-danger" onclick="eliminarUbicacion();">Eliminar Ubicación</button>
-										  				</div>
-										  			</div>
-										  			<script>
-													    $('#mapa-ubicaciones').locationpicker({
-													        location: {
-													            latitude: 46.15242437752303,
-													            longitude: 2.7470703125
-													        },
-													        radius: 100,
-													        inputBinding: {
-													            latitudeInput: $('#us2-lat'),
-													            longitudeInput: $('#us2-lon'),
-													            locationNameInput: $('#us2-address')
-													        },	
-													        enableAutocomplete: true,
-													        markerInCenter: true,
-													        addressFormat: 'full'
-													    });
-													</script>
-										  		</div>
-										  	</div>
-										  </div>
-										</div>
-
-		                            </div>
-		                        </div>	                        	
-	                        </div>
-
-	                	</div>
-					  </div>
-					</div>
-	                
-	                
-	            </div>
-	        </div>
-	        <!--EMPLEADOS-->
-	        <div id="empleados" class="tab-pane fade">
-	        	<div class="container">
-	            	<div class="panel panel-primary">
-					  <div class="panel-heading"><h3>Pasajeros</h3></div>
-					  <div class="panel-body">
-					    <div> 
-	                        <div id="empleados" class="tab-pane active">
-                            	<div class="panel panel-info">
-								  <!-- Default panel contents -->
-								  <div class="panel-body">
-								  	<div class="container-fluid">
-								  		<div class="col-sm-3">
-								  			<div class="list-group" id="listado_empleados">
-											  <button onclick="actualizarMapaEmpleado(this)" type="button" class="list-group-item active" data-lat="10.073107" data-lon="-69.293147" data-tel="0251-2515642" data-nom="Juan" data-id="23.432.422" data-suc="1" data-car="Gerente" data-sex="1"><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Juan</button>
-											  <button onclick="actualizarMapaEmpleado(this)" type="button" class="list-group-item" data-lat="10.079480" data-lon="-69.281268" data-tel="0251-2515523" data-nom="Jose Castillo" data-id="20.432.983" data-suc="2" data-car="Cajero" data-sex="1"><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Jose Castillo</button>
-											  <button onclick="actualizarMapaEmpleado(this)" type="button" class="list-group-item" data-lat="10.062538" data-lon="-69.364611" data-tel="0251-2456642" data-nom="Alejandra Martinez" data-id="21.499.192" data-suc="3" data-car="Dueña" data-sex="2"><span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>Alejandra Castillo</button>
-											  <button onclick="registrarEmpleado(this)" type="button" class="list-group-item" data-lat="10.062538" data-lon="-69.364611" data-tel="" data-id="" data-suc="0" data-car="" data-sex="1"><span class="badge"><span class="glyphicon glyphicon-plus"></span></span>Agregar Pasajero</button>
-											</div>
-								  		</div>
-								  		<div class="col-sm-9">
-								  			<div class="container-fluid">
-								  				<div class="col-sm-6">
-								  					<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon31"><span class="glyphicon glyphicon-home"></span></span>
-													  	<input type="text" id="us3-nombre" class="form-control" placeholder="Nombre del pasajero" aria-describedby="sizing-addon31"/>												
-													</div>
-								  				</div>
-								  				<div class="col-sm-6">
-								  					<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon41"><span class="glyphicon glyphicon-tag"></span></span>
-													  	<input type="text" id="us3-identificacion" class="form-control" placeholder="Identificación del pasajero" aria-describedby="sizing-addon41"/>												
-													</div>
-								  				</div>
-
-								  			</div>
-
-								  			<div class="container-fluid">
-								  				<div class="col-sm-6">
-								  					<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon21"><span class="glyphicon glyphicon-earphone"></span></span>
-													  	<input type="text" id="us3-telefono" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon21"/>												
-													</div>
-								  				</div>
-								  				<div class="col-sm-6">
-										  			<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon61"><span class="glyphicon glyphicon-user"></span></span>
-													  	<div class="radio">
-															<label>
-																<input type="radio" name="sexo" value="1"><span class="circle"></span><span class="check"></span>
-																Masculino
-															</label>
-															<label>
-																<input type="radio" name="sexo" value="2"><span class="circle"></span><span class="check"></span>
-																Femenino
-															</label>
-														</div>
-													</div>								  					
-								  				</div>
-								  			</div>
-
-								  			<div class="container-fluid">
-								  	
-								  				<div class="col-sm-6">
-										  			<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon11"><span class="glyphicon glyphicon-copy"></span></span>
-														<select class="form-control" id="us3-sucursal" aria-describedby="sizing-addon11">
-														    <option value="0">Selecciones la sucursal</option>
-														    <option value="1">Sambil</option>
-														    <option value="2">Las Trinitarias</option>
-														    <option value="3">Metrópolis</option>
-														  </select>														
-													</div>								  					
-								  				</div>
-								  				<div class="col-sm-6">
-								  					<div class="input-group input-group-lg">
-													  	<span class="input-group-addon" id="sizing-addon71"><span class="glyphicon glyphicon-copy"></span></span>
-													  	<input type="text" id="us3-cargo" class="form-control" placeholder="Cargo" aria-describedby="sizing-addon71"/>												
-													</div>
-								  				</div>
-								  			</div>
-								  			
-								  			<div class="input-group input-group-lg">
-											  	<span class="input-group-addon" id="sizing-addon51"><span class="glyphicon glyphicon-map-marker"></span></span>
-											  	<input type="text" id="us3-address" class="form-control" placeholder="Dirección" aria-describedby="sizing-addon51"/>
-																										
-											</div>
-
-
-											
-											<div id="mapa-empleados" style="height:400px; width: 100%;visibility: hidden;display:block;">
-							  				
-							  				</div>
-											
-								  			
-								  			<div class="">
-								  				<div style="text-align: center;">
-								  					<button class="btn btn-primary" onclick="actualizarEmpleado();">Actualizar Pasajero</button>
-								  					<button class="btn btn-danger" onclick="eliminarEmpleado();">Eliminar Pasajero</button>
-								  				</div>
-								  			</div>
-								  			<script>
-											    $('#mapa-empleados').locationpicker({
-											        location: {
-											            latitude: 46.15242437752303,
-											            longitude: 2.7470703125
-											        },
-											        radius: 100,
-											        inputBinding: {
-											            latitudeInput: $('#us3-lat'),
-											            longitudeInput: $('#us3-lon'),
-											            locationNameInput: $('#us3-address')
-											        },	
-											        enableAutocomplete: true,
-											        markerInCenter: true,
-											        addressFormat: 'full'
-											    });
-											</script>
-								  		</div>
-								  	</div>
-								  </div>
-								</div>
-
-                            </div>
-
-	                	</div>
-					  </div>
-					</div>
-	                
-	                
-	            </div>
-	        </div>
-	        
-	        <!--ORDEN DE SERVICIO-->
+			        <!--ORDEN DE SERVICIO-->
 	        <div id="solicitudes" class="tab-pane fade">
-	            <div class="container">
+	            <div class="cont5ainer">
 	            	<div class="col-sm-4">
 	            		<div class="bootcards-list">
 						  <div class="panel panel-default">
@@ -502,7 +230,7 @@
 
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">Días(s):L M V</p>
+						            <p class="list-group-item-text">Día(s):L M V</p>
 						            <p class="list-group-item-text">Hora: 9:00 AM</p>
 						            <p class="list-group-item-text">Pasajeros: 3</p>
 						          </div>
@@ -522,7 +250,7 @@
 
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">Días(s):L M J V</p>
+						            <p class="list-group-item-text">Día(s):L M J V</p>
 						            <p class="list-group-item-text">Hora: 11:00 AM</p>
 						            <p class="list-group-item-text">Pasajeros: 6</p>	
 						          </div>
@@ -543,7 +271,28 @@
 
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">Días(s):L M V</p>
+						            <p class="list-group-item-text">Día(s):L M V</p>
+						            <p class="list-group-item-text">Hora: 10:00 PM</p>
+						            <p class="list-group-item-text">Pasajeros: 3</p>
+						          </div>
+						        </div>
+						      </a>
+							  <a class="list-group-item" href="#">
+						        <div class="row">
+						          <div class="col-sm-6">
+						          	<div class="col-sm-4">
+						          		<i class="fa fa-3x fa-address-book pull-left"></i>	
+						          	</div>
+						          	<div class="col-sm-8">
+							            <h4 class="list-group-item-heading">#4</h4>
+							            <p class="list-group-item-text">Sucursal: Sambil</p>
+							            						          		
+						          	</div>
+						            
+
+						          </div>
+						          <div class="col-sm-6">
+						            <p class="list-group-item-text">Día(s):L M V</p>
 						            <p class="list-group-item-text">Hora: 10:00 PM</p>
 						            <p class="list-group-item-text">Pasajeros: 3</p>
 						          </div>
@@ -553,12 +302,17 @@
 						  </div>
 						</div>
 	            	</div>
-	            	<div class="col-sm-8 bootcards-cards hidden-xs">
-
-	            	<div class="col-sm-4">
+					
+					
+	            	<div class="col-sm-8 bootcards-cards">
+					
+					<div id="paginacion" class="col-sm-8">
+					<div id="elementos" class="row">
+						<div class="col-sm-6">
 							<div class="panel panel-primary">
 				                <div class="panel-heading clearfix">
-				                	<h3 class="panel-title pull-left">Ruta #1</h3> 
+				                	<h3 class="panel-title pull-left">Ruta #1</h3>
+									<div class="my-icon pull-right" style="margin-top: 10px"><i id="ic-verModal" class="fa fa-hand-pointer-o" aria-hidden="true"></i></div> 
 				                </div>
 				              	<div id="lista-paradas" class="list-group">
 
@@ -605,12 +359,13 @@
 				              	</div>
    
 				            </div>
-                     </div>
+						</div>
 
-                     <div class="col-sm-4">
+						<div class="col-sm-6">
 							<div class="panel panel-primary">
 				                <div class="panel-heading clearfix">
 				                	<h3 class="panel-title pull-left">Ruta #2</h3> 
+									<div class="my-icon pull-right" style="margin-top: 10px"><i id="ic-verModal" class="fa fa-hand-pointer-o" aria-hidden="true"></i></div> 
 				                </div>
 				              	<div id="lista-paradas" class="list-group">
 
@@ -657,65 +412,57 @@
 				              	</div>
    
 				            </div>
-                     </div>
-
-                     <div class="col-sm-4">
-							<div class="panel panel-primary">
-				                <div class="panel-heading clearfix">
-				                	<h3 class="panel-title pull-left">Ruta #3</h3> 
+						</div>
+						</div>
+						<div class="col-sm-2">
+						</div>
+						<div id="paginador" class="col-sm-10">
+							<ul class="pagination pagination-primary">
+								<li><a href="#"><</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">></a></li>
+							</ul>
+						</div>
+						<div class="col-sm-1">
+						</div>
+					</div>
+						<div class="col-sm-4">
+							<div class="panel">
+				                <div class="panel-heading clearfix" style="background-color: #768b94; color: white">
+				                	<h3 class="panel-title pull-left" style="text-align:left">Ubicaciones</h3> 
+									<span style="margin-top: 10px" class="pull-right glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="left" title="Arrastre acá las ubicaciones que desea mover a otras rutas"></span>
 				                </div>
 				              	<div id="lista-paradas" class="list-group">
 
-					                <div class="list-group-item">
-					                  <strong><font size="2">A: Sucursal</font></strong>
-					                </div>
+					                
 
 					                <!--DRAG & DROP-->
 
 					                <ul id="sortable1" class="connectedSortable">
 
-					                  <li class="ui-state-default">					                  	
-					                   <div class="list-group-item">
-					                     <strong><font size="2">C: Urb. Nueva Segovia, Calle 3</font></strong>
-					                     <label>William Alvarez, 0414-3059301</label>
-					                   </div>
-					                  </li>
-
-					                  <li class="ui-state-default">
-					                   <div class="list-group-item">
-					                     <strong><font size="2">D: Urb. Central</font></strong>
-					                     <label>Oscar Perez, Masculino, 0414-4059301</label>
-					                   </div>
-					                  </li>
-
-					                  <li class="ui-state-default">	
-					                   <div class="list-group-item">
-					                     <strong><font size="2">E: Urb. Este</font></strong>
-					                     <label>Jose Luis Ramirez, 0414-4059306</label>
-					                   </div>
-					                  </li>
-
-					                  <li class="ui-state-default">
-					                   <div class="list-group-item">
-					                     <strong><font size="2">F: Urb. Oeste</font></strong>
-					                     <label>Jesus Gutierrez, 0414-4059302</label>
-					                   </div>
-					                  </li>
+					                  
 
 					                </ul>
 
 					                <!--DRAG & DROP-->
-
+								
 				              	</div>
    
 				            </div>
-                     </div>
-
-		            	<div id="map">		            		
+						</div>
+		            	
+						<div id="map">		            		
 		            	</div>
 		            	 <br>
 
 			        </div><!--list-details-->
+					
+					
+					
 	            </div>
 	        </div>
 	        
