@@ -1,4 +1,4 @@
-package servlet;
+package com.upy.servlets;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,7 +31,7 @@ import com.upy.model.Sucursal;
 @WebServlet(name = "CoordinacionRutas", urlPatterns = { "/coordinacion-rutas" })
 public class CoordinacionRutasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String COORDINACION_RUTAS_JSP =  "coordinacion-rutas.jsp";
+	private static String COORDINACION_RUTAS_JSP =  "RutasCoordinacion.jsp";
 	
     /**
      * @see HttpServlet#HttpServlet()

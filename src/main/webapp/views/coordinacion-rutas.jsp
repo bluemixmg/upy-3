@@ -227,7 +227,7 @@
 
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">DÃ­a(s):L M V</p>
+						            <p class="list-group-item-text">Días(s):L M V</p>
 						            <p class="list-group-item-text">Hora: 9:00 AM</p>
 						            <p class="list-group-item-text">Pasajeros: 3</p>
 						          </div>
@@ -247,7 +247,7 @@
 
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">DÃ­a(s):L M J V</p>
+						            <p class="list-group-item-text">Días(s):L M J V</p>
 						            <p class="list-group-item-text">Hora: 11:00 AM</p>
 						            <p class="list-group-item-text">Pasajeros: 6</p>	
 						          </div>
@@ -268,7 +268,7 @@
 
 						          </div>
 						          <div class="col-sm-6">
-						            <p class="list-group-item-text">DÃ­a(s):L M V</p>
+						            <p class="list-group-item-text">Días(s):L M V</p>
 						            <p class="list-group-item-text">Hora: 10:00 PM</p>
 						            <p class="list-group-item-text">Pasajeros: 3</p>
 						          </div>
