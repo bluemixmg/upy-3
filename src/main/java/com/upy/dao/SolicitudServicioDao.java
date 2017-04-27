@@ -31,7 +31,7 @@ public class SolicitudServicioDao {
 					sql += Validacion.Apost(Validacion.CnvHoraString(solicitud.getHora()))+",";
 					sql += Validacion.Apost(Validacion.formatDate(solicitud.getFechaInicio()))+",";
 					sql += Validacion.Apost(Validacion.formatDate(solicitud.getFechaFin()))+",";
-					sql += Validacion.Apost("NO APROBADA")+",";
+					sql += Validacion.Apost("APROBADA")+",";
 					sql += solicitud.getTurno().getId()+");";
  					st.executeUpdate(sql);
 					st.close();

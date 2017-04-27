@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.sql.ResultSet;
 
 import com.upy.config.ConexionBD;
+import com.upy.config.Validacion;
 import com.upy.model.Pasajero;
 import com.upy.model.Ruta;
 
@@ -23,8 +24,8 @@ public class RutaDao {
 				if(c!= null){
 					Statement st;
 					st = c.createStatement();
-					String sql = "INSERT INTO ruta VALUES (";
-					//Sentencia SQL faltante a partir de aqui
+					String sql = "INSERT INTO ruta (id_solicitud_servicio) VALUES (";
+					sql+=ruta.getSolicitudServicio().getId()+");";
 					st.executeUpdate(sql);
 					st.close();
 					registrado=true;
