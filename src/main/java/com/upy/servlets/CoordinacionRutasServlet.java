@@ -25,6 +25,8 @@ import com.upy.model.Ruta;
 import com.upy.model.Pasajero;
 import com.upy.model.Sucursal;
 
+import generacionRutas.*;
+
 /**
  * Servlet implementation class IdeaServlet
  */
@@ -32,6 +34,8 @@ import com.upy.model.Sucursal;
 public class CoordinacionRutasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String COORDINACION_RUTAS_JSP =  "RutasCoordinacion.jsp";
+	
+	private ArrayList<SolicitudServicio> solicitudes;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -69,7 +73,51 @@ public class CoordinacionRutasServlet extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<Pasajero> ubicaciones = new ArrayList<Pasajero>();
+		HttpSession session = request.getSession();
+		
+		ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
+		SolicitudServicioDao solicitud_dao = new SolicitudServicioDao();
+		String sucursal = request.getParameter("sucursal");
+		
+		solicitudes = solicitud_dao.get(sucursal);
+		  for(int i=0; i<solicitudes.size(); i++){
+			  //solicitudes.get(i).setPasajeros(solicitud_dao.getPasajerosPorSolicitud(solicitudes.get(i).getId()));
+		  }
+		  
+		  session.setAttribute("solicitudes", solicitudes);
+ 
+		  
 		processRequest(request, response);
+	}
+	
+	public ArrayList<ArrayList<Pasajero>> generarRutas(int idSolicitud){
+		ArrayList<ArrayList<Pasajero>> grupos = new ArrayList<ArrayList<Pasajero>>();
+		ArrayList<Pasajero> pasajeros_solicitud = new ArrayList<Pasajero>();
+		boolean encontrado = false;
+		ArrayList<Pasajero> ubicaciones = new ArrayList<Pasajero>();
+		SolicitudServicio solicitud_servicio;
+		
+		int i=0;
+		while(!encontrado){
+			solicitud_servicio = new SolicitudServicio();
+			solicitud_servicio = solicitudes.get(i);
+			if(solicitud_servicio.getId() == idSolicitud){
+				encontrado=true;
+			}
+			i++;
+		}
+		
+		//pasajeros_solicitud = solicitud_servicio.getPasajeros();
+		
+		  for(int j=0; j<pasajeros_solicitud.size(); j++){
+			  ubicaciones.add(pasajeros_solicitud.get(i));
+		  }
+		Agrupamiento clustering = new Agrupamiento(ubicaciones);
+		grupos = clustering.dbscanClustering();
+		//Guardar rutas
+		//Guardar pasajeros por rutas
+		return grupos;
 	}
 
 
