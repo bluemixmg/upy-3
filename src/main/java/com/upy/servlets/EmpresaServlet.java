@@ -70,6 +70,11 @@ public class EmpresaServlet extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		int idSolicitud = Integer.parseInt(request.getParameter("idSolicitud"));
+		ArrayList<ArrayList<Pasajero>> grupos = this.generarRutas(idSolicitud);
+		JSONArray rutas = this.jsonArrayLatLon(grupos);
+		session.setAttribute("rutas_json", rutas);
 		processRequest(request, response);
 	}
 	
@@ -99,19 +104,28 @@ public class EmpresaServlet extends HttpServlet {
 		grupos = clustering.dbscanClustering();
 		//Guardar rutas
 		//Guardar pasajeros por rutas
+		
 		return grupos;
 	}
 	
-	public JSONArray jsonArrayLatLon(ArrayList<Pasajero> pasajerosRuta){
-		JSONArray list = new JSONArray();
+	public JSONArray jsonArrayLatLon(ArrayList<ArrayList<Pasajero>> grupos){
+		JSONArray rutas = new JSONArray();
+		JSONArray waypoints;
 		JSONObject obj;
-		 for(int i=0; i<pasajerosRuta.size(); i++){
-			 obj = new JSONObject();
-			 obj.put("Latitud", pasajerosRuta.get(i).getLatitud());
-			 obj.put("Longitud", pasajerosRuta.get(i).getLongitud());
-			 list.add(obj);
+		 for(int i=0; i<grupos.size(); i++){
+			 
+			 waypoints = new JSONArray();
+			 
+			 for(int j=0; j<grupos.get(i).size(); j++){
+				 obj = new JSONObject();
+				 obj.put("Latitud", grupos.get(i).get(j).getLatitud());
+				 obj.put("Longitud", grupos.get(i).get(j).getLongitud());
+				 waypoints.add(obj);
+			 }
+			 
+			 rutas.add(waypoints);
 		 }
-		return list;
+		return rutas;
 	}
 
 
