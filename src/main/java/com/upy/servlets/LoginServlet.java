@@ -55,6 +55,29 @@ public class LoginServlet extends HttpServlet {
     		response.getWriter().print(ioe.getMessage());
     	}
     }
+
+    protected void processLogin(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        try{
+            response.setContentType("text/html;charset=UTF-8");
+            
+            if (request.getParameter("email").equalsIgnoreCase("coordinador@upy3.com")) {
+                response.sendRedirect("coordinacion-rutas");
+            }else{
+                response.sendRedirect("empresa");
+            }
+            
+            rq.forward(request, response);
+
+        }catch(IOException ioe){
+            //throw new ServletException(ioe);
+            response.getWriter().print("Genero un error en IOException");
+            response.getWriter().print(ioe.getMessage());
+        }
+    }
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -63,6 +86,11 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processLogin(request, response);
+    }
+
 
 
 }
