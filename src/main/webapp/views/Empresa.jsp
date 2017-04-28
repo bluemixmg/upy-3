@@ -7,6 +7,7 @@
 		
 		
 		
+		
 		<link rel="icon" type="image/png" href="../assets/images/ic_launcher.png" />
 		<!-- Archivos CSS Bootstrap -->
 		<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
