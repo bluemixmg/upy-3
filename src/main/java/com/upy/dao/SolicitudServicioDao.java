@@ -73,8 +73,8 @@ public class SolicitudServicioDao {
 						while(solicitudes.next()){
 							SolicitudServicio ss= new SolicitudServicio();
 							ss.setId(id);
-							ss.setClasifVeh(cVehDao.getUnaClasificacion(solicitudes.getInt("id")));
-							System.out.println("Clasi. Veh.: "+solicitudes.getInt("id"));
+							//ss.setClasifVeh(cVehDao.getUnaClasificacion(solicitudes.getInt("clasificacion_vehiculo")));
+							//System.out.println("Clasi. Veh.: "+solicitudes.getInt("id"));
 							ss.setEstatus(solicitudes.getString("estatus"));
 							ss.setFechaFin(solicitudes.getDate("fecha_fin"));
 							System.out.println("fecha fin: "+solicitudes.getDate("fecha_fin"));
