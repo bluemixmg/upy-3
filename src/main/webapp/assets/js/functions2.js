@@ -20,105 +20,120 @@ $(document).ready(function(){
 	});
 
 	$('#myModal').on('shown.bs.modal', function () {
-	    var form = $("#example-advanced-form").show();
- 
-					form.steps({
-					    headerTag: "h3",
-					    bodyTag: "fieldset",
-					    transitionEffect: "slideLeft",
-					    labels: {
-					        current: "Actual",
-					        pagination: "Paginación",
-					        finish: "Finalizar",
-					        next: "Siguiente",
-					        previous: "Anterior",
-					        loading: "Cargando ...",
-					    },
-					    onStepChanging: function (event, currentIndex, newIndex)
-					    {
-					        // Allways allow previous action even if the current form is not valid!
-					        if (currentIndex > newIndex)
-					        {
-					            return true;
-					        }
-					        // Needed in some cases if the user went back (clean up)
-					        if (currentIndex < newIndex)
-					        {
-					            // To remove error styles
-					            form.find(".body:eq(" + newIndex + ") label.error").remove();
-					            form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
-					        }
-					        if (newIndex === 2){
-					            //aqui va el codigo para cargar la pantalla de resumen
-					        }
-					        form.validate().settings.ignore = ":disabled,:hidden";
-					        return form.valid();
-					    },
-					    onStepChanged: function (event, currentIndex, priorIndex)
-					    {
-					        // Used to skip the "Warning" step if the user is old enough.
-					        if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
-					        {
-					            form.steps("next");
-					        }
-					        // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-					        if (currentIndex === 2 && priorIndex === 3)
-					        {
-					            form.steps("previous");
-					        }
-					    },
-					    onFinishing: function (event, currentIndex)
-					    {
-					        form.validate().settings.ignore = ":disabled";
-					        return form.valid();
-					    },
-					    onFinished: function (event, currentIndex)
-					    {
-					        swal({
-							  title: "Esta seguro que desea realizar la solicitud de traslado?",
-							  type: "warning",
-							  showCancelButton: true,
-							  confirmButtonColor: "#DD6B55",
-							  confirmButtonText: "Si!",
-							  cancelButtonText: "No!",
-							  closeOnConfirm: false,
-							  closeOnCancel: false
-							},
-							function(isConfirm){
-							  if (isConfirm) {
-							    swal("Actualizado!", "La solicitud se ha registrado exitosamente.", "success");
-							  } else {
-							    swal("Cancelado", "Solicitud de traslado cancelada.", "error");
-							  }
-							});
-					    }
-					}).validate({
-					    errorPlacement: function errorPlacement(error, element) { element.before(error); },
-					    rules: {
-					        confirm: {
-					            equalTo: "#password-2"
-					        }
-					    }
-					});
+	    
+		   $('#myModal').on('shown.bs.modal', function () {
+		    var form = $("#example-advanced-form").show();
+	 
+						form.steps({
+						    headerTag: "h3",
+						    bodyTag: "fieldset",
+						    transitionEffect: "slideLeft",
+						    labels: {
+						        current: "Actual",
+						        pagination: "Paginación",
+						        finish: "Finalizar",
+						        next: "Siguiente",
+						        previous: "Anterior",
+						        loading: "Cargando ...",
+						    },
+						    onStepChanging: function (event, currentIndex, newIndex)
+						    {
+						        // Allways allow previous action even if the current form is not valid!
+						        if (currentIndex > newIndex)
+						        {
+						            return true;
+						        }
+						        // Needed in some cases if the user went back (clean up)
+						        if (currentIndex < newIndex)
+						        {
+						            // To remove error styles
+						            form.find(".body:eq(" + newIndex + ") label.error").remove();
+						            form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+						        }
+						        if (newIndex === 2){
+						            //aqui va el codigo para cargar la pantalla de resumen
+						        }
+						        form.validate().settings.ignore = ":disabled,:hidden";
+						        return form.valid();
+						    },
+						    onStepChanged: function (event, currentIndex, priorIndex)
+						    {
+						        // Used to skip the "Warning" step if the user is old enough.
+						        if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
+						        {
+						            form.steps("next");
+						        }
+						        // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+						        if (currentIndex === 2 && priorIndex === 3)
+						        {
+						            form.steps("previous");
+						        }
+						    },
+						    onFinishing: function (event, currentIndex)
+						    {
+						        form.validate().settings.ignore = ":disabled";
+						        return form.valid();
+						    },
+						    onFinished: function (event, currentIndex)
+						    {
+						        swal({
+								  title: "Esta seguro que desea realizar la solicitud de traslado?",
+								  type: "warning",
+								  showCancelButton: true,
+								  confirmButtonColor: "#DD6B55",
+								  confirmButtonText: "Si!",
+								  cancelButtonText: "No!",
+								  closeOnConfirm: false,
+								  closeOnCancel: false
+								},
+								function(isConfirm){
+								  if (isConfirm) {
+								    swal("Actualizado!", "La solicitud se ha registrado exitosamente.", "success");
+								  } else {
+								    swal("Cancelado", "Solicitud de traslado cancelada.", "error");
+								  }
+								});
+						    }
+						}).validate({
+						    errorPlacement: function errorPlacement(error, element) { element.before(error); },
+						    rules: {
+						        confirm: {
+						            equalTo: "#password-2"
+						        }
+						    }
+						});
 
-					$('[data-toggle="tooltip"]').tooltip();
-					$('#myModal').on('focus',".date", function(){
-					    $(this).datepicker({
-					    	'minDate': "+ 2d",
-					    });
-					})
+						$('[data-toggle="tooltip"]').tooltip();
+						$('#myModal').on('focus',".date", function(){
+						    $(this).datepicker({
+						    	'minDate': "+ 2d",
+						    });
+						})
 
-					$('#myModal').on('focus',".time", function(){
-					    $(this).timepicker({
-					    	'minDate': "+ 2d"
-					    });
-					})
+						$('#myModal').on('focus',".time", function(){
+						    $(this).timepicker({
+						    	'minDate': "+ 2d"
+						    });
+						})
 
+
+
+		});
 
 
 	});
 
-	
+	$('#myModal').on('focus',".date", function(){
+	    $(this).datepicker({
+	    	'minDate': "+ 2d",
+	    });
+	})
+
+	$('#myModal').on('focus',".time", function(){
+	    $(this).timepicker({
+	    	'minDate': "+ 2d"
+	    });
+	})
 
 
 });
@@ -301,4 +316,22 @@ function registrarEmpleado(el){
 	btnNuevo.insertBefore("#listado_empleados button:last-child");
 	btnNuevo.click();
 	swal("Pasajero Agregado", 'Por favor modifique los detalles del pasajero y presione el botón "Actualizar Pasajero"');
+}
+
+function actualizarRuta(el){
+	$("#listado_rutas button.active").removeClass("active");
+	$(el).addClass("active");
+	data = $(el).data("ruta");
+
+	$("#ruta-chofer").html(data.chofer.nombre +", " + data.chofer.sexo + ", " + data.chofer.telefono);
+	$("#ruta-chofer-auto").html(data.chofer.auto);
+	$("#ruta-tarifa").html(data.tarifa);
+
+	$("#lista-paradas").empty();
+
+	$.each(data.paradas, function(i, item){
+		$("#lista-paradas").append('<div class="list-group-item"><strong>' + item.orden 
+									+ ': ' + item.direccion +'</strong><label>' + item.nombre 
+									+ ', ' + item.cedula + ', ' + item.sexo + ', ' + item.telefono + '</label></div>');
+	});
 }
