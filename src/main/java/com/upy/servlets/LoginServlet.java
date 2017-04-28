@@ -59,18 +59,13 @@ public class LoginServlet extends HttpServlet {
     protected void processLogin(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
         try{
-            response.setContentType("text/html;charset=UTF-8");
             
             if (request.getParameter("email").equalsIgnoreCase("coordinador@upy3.com")) {
                 response.sendRedirect("coordinacion-rutas");
             }else{
                 response.sendRedirect("empresa");
             }
-            
-            rq.forward(request, response);
 
         }catch(IOException ioe){
             //throw new ServletException(ioe);
