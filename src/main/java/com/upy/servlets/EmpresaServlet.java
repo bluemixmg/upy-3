@@ -23,8 +23,8 @@ import com.upy.model.SolicitudServicio;
 import generacionRutas.Agrupamiento;
 //import org.json.simple.JsonArray;
 //import org.json.simple.JsonObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+//import com.google.gson.JsonArray;
+//import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class IdeaServlet
@@ -75,8 +75,9 @@ public class EmpresaServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int idSolicitud = Integer.parseInt(request.getParameter("idSolicitud"));
 		ArrayList<ArrayList<Pasajero>> grupos = this.generarRutas(idSolicitud);
-		JsonArray rutas = this.jsonArrayLatLon(grupos);
-		session.setAttribute("rutas_json", rutas);
+		//JsonArray rutas = this.jsonArrayLatLon(grupos);
+		//session.setAttribute("rutas_json", grupos);
+		response.getWriter().println(grupos);
 		processRequest(request, response);
 	}
 	
@@ -110,7 +111,7 @@ public class EmpresaServlet extends HttpServlet {
 		return grupos;
 	}
 	
-	public JsonArray jsonArrayLatLon(ArrayList<ArrayList<Pasajero>> grupos){
+	/*public JsonArray jsonArrayLatLon(ArrayList<ArrayList<Pasajero>> grupos){
 		JsonArray rutas = new JsonArray();
 		JsonArray waypoints;
 		JsonObject obj;
@@ -128,7 +129,7 @@ public class EmpresaServlet extends HttpServlet {
 			 rutas.add(waypoints);
 		 }
 		return rutas;
-	}
+	}*/
 
 
 }
