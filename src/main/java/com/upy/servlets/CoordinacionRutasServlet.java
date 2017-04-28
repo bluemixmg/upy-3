@@ -77,6 +77,7 @@ public class CoordinacionRutasServlet extends HttpServlet {
 		ArrayList<Pasajero> ubicaciones = new ArrayList<Pasajero>();
 		HttpSession session = request.getSession();
 		
+		
 		ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
 		SolicitudServicioDao solicitud_dao = new SolicitudServicioDao();
 		String sucursal = request.getParameter("sucursal");

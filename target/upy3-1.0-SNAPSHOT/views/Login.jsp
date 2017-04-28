@@ -68,28 +68,26 @@
 				<div class="login-panel">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-sm-12">
-								<h2>Ingresa a UPY-3</h2>
+							<div class="col-sm-12 panel-header">
+								<h3>Ingresa a UPY3</h3>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-12">
-								<form>
+							<div class="col-sm-12 panel-body">
+								<form action="/login" method="POST">
 								  <div class="form-group">
-								    <label for="exampleInputEmail1">Email</label>
-								    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+								    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
 								  </div>
 								  <div class="form-group">
-								    <label for="exampleInputPassword1">Contraseña</label>
-								    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+								    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 								  </div>
 								  <div class="checkbox">
 								    <label>
-								      <input type="checkbox"> Recordarme
+								      <input name="rememberMe" type="checkbox"> Recordarme
 								    </label>
 								  </div>
 								  <div style="text-align: center;">
-								  	<button type="submit" class="btn btn-success">Ingresar</button>	
+								  	<button type="submit" class="btn btn-primary">Ingresar</button>	
 								  </div>
 								  
 								</form>
@@ -108,7 +106,7 @@
 				        <li><a href="https://www.facebook.com/Upy3-562249513940554"><i class="facebook"></i></a></li>
 				        <li><a href="https://twitter.com/UpyDriver"><i class="twitter"></i></a></li>
 				   	</ul>
-				  	<p class="modal-footer text-center">&copy;Copyright 2016, <b>upy3</b> <br class="hidden-lg hidden-md hidden-sm">| Diseñado y Desarrollado por:<a class="btn btn-link" href="http://www.marnagarage.com">Marna Garage</a> <br class="hidden-lg hidden-md hidden-sm">| <a href="terminos_de_uso.php">Términos de uso</a></p>
+				  	<p class="modal-footer text-center">&copy;Copyright 2016, <b>upy3</b> <br class="hidden-lg hidden-md hidden-sm">| Diseñado y Desarrollado por:<a class="btn btn-link btn-sm" href="http://www.marnagarage.com">Marna Garage</a> <br class="hidden-lg hidden-md hidden-sm">| <a href="terminos_de_uso.php">Términos de uso</a></p>
 			  	</div>
 			</div>
 		</footer>
