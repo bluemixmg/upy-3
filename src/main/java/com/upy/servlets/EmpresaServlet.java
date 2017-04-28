@@ -17,6 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.upy.model.Pasajero;
+import com.upy.model.SolicitudServicio;
+
+import generacionRutas.Agrupamiento;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  * Servlet implementation class IdeaServlet
  */
@@ -24,6 +31,8 @@ import javax.servlet.http.HttpSession;
 public class EmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String EMPRESA_JSP =  "Empresa.jsp";
+	private ArrayList<SolicitudServicio> solicitudes;
+	
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -62,6 +71,47 @@ public class EmpresaServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
+	}
+	
+	public ArrayList<ArrayList<Pasajero>> generarRutas(int idSolicitud){
+		ArrayList<ArrayList<Pasajero>> grupos = new ArrayList<ArrayList<Pasajero>>();
+		ArrayList<Pasajero> pasajeros_solicitud = new ArrayList<Pasajero>();
+		boolean encontrado = false;
+		ArrayList<Pasajero> ubicaciones = new ArrayList<Pasajero>();
+		SolicitudServicio solicitud_servicio;
+		
+		int i=0;
+		while(!encontrado){
+			solicitud_servicio = new SolicitudServicio();
+			solicitud_servicio = solicitudes.get(i);
+			if(solicitud_servicio.getId() == idSolicitud){
+				encontrado=true;
+			}
+			i++;
+		}
+		
+		//pasajeros_solicitud = solicitud_servicio.getPasajeros();
+		
+		  for(int j=0; j<pasajeros_solicitud.size(); j++){
+			  ubicaciones.add(pasajeros_solicitud.get(i));
+		  }
+		Agrupamiento clustering = new Agrupamiento(ubicaciones);
+		grupos = clustering.dbscanClustering();
+		//Guardar rutas
+		//Guardar pasajeros por rutas
+		return grupos;
+	}
+	
+	public JSONArray jsonArrayLatLon(ArrayList<Pasajero> pasajerosRuta){
+		JSONArray list = new JSONArray();
+		JSONObject obj;
+		 for(int i=0; i<pasajerosRuta.size(); i++){
+			 obj = new JSONObject();
+			 obj.put("Latitud", pasajerosRuta.get(i).getLatitud());
+			 obj.put("Longitud", pasajerosRuta.get(i).getLongitud());
+			 list.add(obj);
+		 }
+		return list;
 	}
 
 

@@ -45,6 +45,7 @@ public class CoordinacionRutasServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
+    
     @Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
@@ -91,34 +92,6 @@ public class CoordinacionRutasServlet extends HttpServlet {
 		processRequest(request, response);
 	}
 	
-	public ArrayList<ArrayList<Pasajero>> generarRutas(int idSolicitud){
-		ArrayList<ArrayList<Pasajero>> grupos = new ArrayList<ArrayList<Pasajero>>();
-		ArrayList<Pasajero> pasajeros_solicitud = new ArrayList<Pasajero>();
-		boolean encontrado = false;
-		ArrayList<Pasajero> ubicaciones = new ArrayList<Pasajero>();
-		SolicitudServicio solicitud_servicio;
-		
-		int i=0;
-		while(!encontrado){
-			solicitud_servicio = new SolicitudServicio();
-			solicitud_servicio = solicitudes.get(i);
-			if(solicitud_servicio.getId() == idSolicitud){
-				encontrado=true;
-			}
-			i++;
-		}
-		
-		//pasajeros_solicitud = solicitud_servicio.getPasajeros();
-		
-		  for(int j=0; j<pasajeros_solicitud.size(); j++){
-			  ubicaciones.add(pasajeros_solicitud.get(i));
-		  }
-		Agrupamiento clustering = new Agrupamiento(ubicaciones);
-		grupos = clustering.dbscanClustering();
-		//Guardar rutas
-		//Guardar pasajeros por rutas
-		return grupos;
-	}
 
 
 }
