@@ -21,8 +21,10 @@ import com.upy.model.Pasajero;
 import com.upy.model.SolicitudServicio;
 
 import generacionRutas.Agrupamiento;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+//import org.json.simple.JsonArray;
+//import org.json.simple.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class IdeaServlet
@@ -73,7 +75,7 @@ public class EmpresaServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int idSolicitud = Integer.parseInt(request.getParameter("idSolicitud"));
 		ArrayList<ArrayList<Pasajero>> grupos = this.generarRutas(idSolicitud);
-		JSONArray rutas = this.jsonArrayLatLon(grupos);
+		JsonArray rutas = this.jsonArrayLatLon(grupos);
 		session.setAttribute("rutas_json", rutas);
 		processRequest(request, response);
 	}
@@ -108,18 +110,18 @@ public class EmpresaServlet extends HttpServlet {
 		return grupos;
 	}
 	
-	public JSONArray jsonArrayLatLon(ArrayList<ArrayList<Pasajero>> grupos){
-		JSONArray rutas = new JSONArray();
-		JSONArray waypoints;
-		JSONObject obj;
+	public JsonArray jsonArrayLatLon(ArrayList<ArrayList<Pasajero>> grupos){
+		JsonArray rutas = new JsonArray();
+		JsonArray waypoints;
+		JsonObject obj;
 		 for(int i=0; i<grupos.size(); i++){
 			 
-			 waypoints = new JSONArray();
+			 waypoints = new JsonArray();
 			 
 			 for(int j=0; j<grupos.get(i).size(); j++){
-				 obj = new JSONObject();
-				 obj.put("Latitud", grupos.get(i).get(j).getLatitud());
-				 obj.put("Longitud", grupos.get(i).get(j).getLongitud());
+				 obj = new JsonObject();
+				 obj.addProperty("Latitud", grupos.get(i).get(j).getLatitud());
+				 obj.addProperty("Longitud", grupos.get(i).get(j).getLongitud());
 				 waypoints.add(obj);
 			 }
 			 
