@@ -33,7 +33,8 @@ import generacionRutas.*;
 @WebServlet(name = "CoordinacionRutas", urlPatterns = { "/coordinacion-rutas" })
 public class CoordinacionRutasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String COORDINACION_RUTAS_JSP =  "RutasCoordinacion.jsp";
+	//private static String COORDINACION_RUTAS_JSP =  "RutasCoordinacion.jsp";
+	private static String COORDINACION_RUTAS_JSP =  "detalle-rutas-coordinador.html";
 	
 	private ArrayList<SolicitudServicio> solicitudes;
 	

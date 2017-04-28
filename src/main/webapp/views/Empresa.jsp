@@ -34,7 +34,7 @@
 		<link href="https://developers.google.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
 		
         <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEbmBMEdo7M5E4Y5XSMY5sDxaQ7g6ZITc&callback=iniciar_Mapas">
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEbmBMEdo7M5E4Y5XSMY5sDxaQ7g6ZITc">
         </script>	
 
 		<script src="../assets/js/locationpicker.jquery.js"></script>
