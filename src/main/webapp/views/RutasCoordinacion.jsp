@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-<% session.setAttribute("sucursal", 1); %>
+<% //session.setAttribute("sucursal", 1); %>
+<% request.setAttribute("sucursal", 1); %>
 		<title>UPY3 | Panel de Control</title>
 		
 		<link rel="icon" type="image/png" href="../assets/images/ic_launcher.png" />
