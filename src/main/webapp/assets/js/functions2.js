@@ -21,7 +21,6 @@ $(document).ready(function(){
 
 	$('#myModal').on('shown.bs.modal', function () {
 	    
-		   $('#myModal').on('shown.bs.modal', function () {
 		    var form = $("#example-advanced-form").show();
 	 
 						form.steps({
@@ -117,8 +116,6 @@ $(document).ready(function(){
 						})
 
 
-
-		});
 
 
 	});

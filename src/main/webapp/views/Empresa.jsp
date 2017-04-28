@@ -974,7 +974,10 @@
 				 			<br>
 				 			<div class="row">
 				 				<div class="col-sm-12">
-				        			<input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <strong for="acceptTerms-2">Estoy de acuerdo con la solicitud de la orden.</strong>				 					
+				 					<div class="checkbox">
+									  <label><input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <strong for="acceptTerms-2">Estoy de acuerdo con la solicitud de la orden.</strong></label>
+									</div>
+				        							 					
 				 				</div>
 				 			</div>
 				 		</div>
