@@ -483,9 +483,7 @@
 				            </div>
 						</div>
 		            	
-						<div id="map">		            		
-                     </div>
-                     	<script>
+                     	<script type="text/javascript">
 					      function initMap() {
 					        var directionsService = new google.maps.DirectionsService;
 					        var directionsDisplay = new google.maps.DirectionsRenderer;
