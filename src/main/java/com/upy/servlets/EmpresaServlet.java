@@ -73,11 +73,11 @@ public class EmpresaServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		int idSolicitud = Integer.parseInt(request.getParameter("idSolicitud"));
-		ArrayList<ArrayList<Pasajero>> grupos = this.generarRutas(idSolicitud);
+		int idSolicitud = 1;
+		//ArrayList<ArrayList<Pasajero>> grupos = this.generarRutas(idSolicitud);
 		//JsonArray rutas = this.jsonArrayLatLon(grupos);
 		//session.setAttribute("rutas_json", grupos);
-		response.getWriter().println(grupos);
+		//response.getWriter().println(grupos);
 		processRequest(request, response);
 	}
 	

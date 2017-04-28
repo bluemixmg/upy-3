@@ -248,11 +248,11 @@
 						          	</div>
 						          </div>
 						          <div class="col-sm-6">
-						          <% String dias=""; %>
-						          <% for(String dia: solicitud.getDias()){ %>
-						          <%	dias+=dia.charAt(0)+" "; %>
-						          <%} %>
-						            <p class="list-group-item-text">Día(s):<%=dias %></p>
+						          <%-- String dias=""; --%>
+						          <%-- for(String dia: solicitud.getDias()){ --%>
+						          <%--	dias+=dia.charAt(0)+" "; --%>
+						          <%-- } --%>
+						            <p class="list-group-item-text">Día(s):<%-- dias --%></p>
 						            <p class="list-group-item-text">Hora: <%= solicitud.getHora() %></p>
 						            <p class="list-group-item-text">Pasajeros: <%= (int)solicitud.getPasajeros().size() %></p>
 						          </div>
@@ -332,11 +332,11 @@
 					<div id="paginacion" class="col-sm-8">
 					<div id="elementos" class="row">
 						<div class="col-sm-6">
-						<% ArrayList<Ruta> rutas =(ArrayList<Ruta>)session.getAttribute("rutas"); %>
-						<%for(Ruta ruta: rutas){ %>
+						<%-- ArrayList<Ruta> rutas =(ArrayList<Ruta>)session.getAttribute("rutas"); --%>
+						<%-- for(Ruta ruta: rutas){ --%>
 							<div class="panel panel-primary">
 				                <div class="panel-heading clearfix">
-				                	<h3 class="panel-title pull-left">Ruta #<%=ruta.getId() %></h3>
+				                	<h3 class="panel-title pull-left">Ruta #<%--ruta.getId() --%></h3>
 									<div class="my-icon pull-right" style="margin-top: 10px"><i id="ic-verModal" class="fa fa-hand-pointer-o" aria-hidden="true"></i></div> 
 				                </div>
 				              	<div id="lista-paradas" class="list-group">
@@ -348,16 +348,16 @@
 					                <!--DRAG & DROP-->
 
 					                <ul id="sortable1" class="connectedSortable">
-										<% ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>(); %>
-										<% pasajeros = (ArrayList<Pasajero>)ruta.getPasajeros(); %>
-										<% for(Pasajero pasajero: pasajeros){ %>
+										<%-- ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>(); --%>
+										<%-- pasajeros = (ArrayList<Pasajero>)ruta.getPasajeros(); --%>
+										<%--for(Pasajero pasajero: pasajeros){ --%>
 					                  <li class="ui-state-default">					                  	
 					                   <div class="list-group-item">
-					                     <strong><font size="2">C: <%=pasajero.getDireccion() %></font></strong>
-					                     <label><%=pasajero.getNombres()+" "+pasajero.getApellidos()+" "+pasajero.getTelefono() %></label>
+					                     <strong><font size="2">C: <%--pasajero.getDireccion() --%></font></strong>
+					                     <label><%--pasajero.getNombres()+" "+pasajero.getApellidos()+" "+pasajero.getTelefono() --%></label>
 					                   </div>
 					                  </li>
-					                  <% } %>
+					                  <%-- } --%>
 
 					                  <!-- <li class="ui-state-default">
 					                   <div class="list-group-item">
@@ -387,7 +387,7 @@
 				              	</div>
    
 				            </div>
-				            <% } %>
+				            <%-- /*}*/ --%>
 						</div>
 
 						<!-- <div class="col-sm-6">

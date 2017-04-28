@@ -2,9 +2,9 @@ applications:
 - path: upy3.war
   memory: 768M
   instances: 1
-  domain: mybluemix.net
+  domain: eu-gb.mybluemix.net
   name: upy-3
   host: upy-3
   disk_quota: 1024M
-  services:
-  - ElephantSQL-69
+  #services:
+  #- ElephantSQL-69

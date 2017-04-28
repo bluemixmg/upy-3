@@ -58,7 +58,6 @@ public class CoordinacionRutasServlet extends HttpServlet {
     	response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
     	try{
-	    	response.setContentType("text/html;charset=UTF-8");
     		RequestDispatcher rq=request.getRequestDispatcher("/views/"+COORDINACION_RUTAS_JSP);
     		rq.forward(request, response);
 
@@ -80,12 +79,17 @@ public class CoordinacionRutasServlet extends HttpServlet {
 		
 		ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
 		SolicitudServicioDao solicitud_dao = new SolicitudServicioDao();
-		String sucursal = request.getParameter("sucursal");
+		String sucursal = (String) session.getAttribute("sucursal");
 		
-		solicitudes = solicitud_dao.get(Integer.parseInt(sucursal));
+		//solicitudes = solicitud_dao.get(Integer.parseInt(sucursal));
+		solicitudes = solicitud_dao.get(1);
 		  for(int i=0; i<solicitudes.size(); i++){
-			  //solicitudes.get(i).setPasajeros(solicitud_dao.getPasajerosPorSolicitud(solicitudes.get(i).getId()));
+			  solicitudes.get(i).setPasajeros(solicitud_dao.getPasajerosPorSolicitud(solicitudes.get(i).getId()));
+			  System.out.println(solicitudes.get(i).getId());
+			  System.out.println(solicitudes.get(i).getHora());
+			  //solicitudes.get(i).setDias(solicitud_dao.getDiasPorSolicitud(solicitudes.get(i).getId()));
 		  }
+		  
 		  
 		  session.setAttribute("solicitudes", solicitudes);
  

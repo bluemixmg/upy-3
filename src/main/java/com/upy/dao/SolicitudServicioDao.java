@@ -62,7 +62,7 @@ public class SolicitudServicioDao {
 				if(c!= null){
 					Statement st;
 					st = c.createStatement();
-					String sql = "SELECT * FROM solicitud_servicio WHERE estatus = 'APROBADA' AND id_sucursal="+id;
+					String sql = "SELECT * FROM solicitud_servicio WHERE estatus = '1' AND id_sucursal="+id;
 					solicitudes = st.executeQuery(sql);
 					try{
 						ClasificacionVehiculoDao cVehDao = new ClasificacionVehiculoDao();
@@ -72,10 +72,14 @@ public class SolicitudServicioDao {
 						TurnoDao turnDao = new TurnoDao();
 						while(solicitudes.next()){
 							SolicitudServicio ss= new SolicitudServicio();
+							ss.setId(id);
 							ss.setClasifVeh(cVehDao.getUnaClasificacion(solicitudes.getInt("id")));
+							System.out.println("Clasi. Veh.: "+solicitudes.getInt("id"));
 							ss.setEstatus(solicitudes.getString("estatus"));
 							ss.setFechaFin(solicitudes.getDate("fecha_fin"));
+							System.out.println("fecha fin: "+solicitudes.getDate("fecha_fin"));
 							ss.setFechaInicio(solicitudes.getDate("fecha_inicio"));
+							System.out.println("fecha inicio: "+solicitudes.getDate("fecha_inicio"));
 							ss.setFrecuencia(frecDao.getUnaFrecuencia(solicitudes.getInt("id_frecuencia")));
 							ss.setHora(solicitudes.getTime("hora"));
 							ss.setSentido(sentDao.getUnSentido(solicitudes.getInt("id_sentido")));
