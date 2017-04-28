@@ -23,6 +23,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/ogutierrez/Desktop/uy3 App/Material/json-simple.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
